@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {DisordersModule} from './disorders/disorders.module';
+import {DbtTrainingModule} from './dbt/dbt-training/dbt-training.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {DisordersModule} from './disorders/disorders.module';
   ],
   imports: [
     BrowserModule,
-    DisordersModule
+    DisordersModule,
+    DbtTrainingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

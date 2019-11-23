@@ -15,6 +15,7 @@ body {
   //chain-node
   --chain-node-main-color: #{$chain-node-main-color};
   --chain-node-border-color: #{$chain-node-border-color};
+  --link-color: #12509f;
   --chain-node-size: #{$chain-node-size};
 
   //chain-connection
@@ -23,4 +24,10 @@ body {
 
   //  common
   --border-width: #{$border-width};
+}
+
+._titlable {
+  text-decoration: underline;
+  -moz-text-decoration-style: dashed;
+  -moz-text-decoration-color: #52f3ff;
 }
