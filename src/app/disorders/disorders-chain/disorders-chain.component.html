@@ -1,0 +1,7 @@
+<p>disorders-chain works!</p>
+<div *ngFor="let disorder of disorderKeys; trackBy: trackByFn"
+     [title]="disordersModel[disorder].info"
+>
+  I'm {{disordersModel[disorder].label}} !
+
+</div>
