@@ -1,0 +1,21 @@
+.dbt-header__content {
+  padding: 10px 10px 0;
+  border-bottom: 1px solid #0884c3;
+  background-color: #38242f;
+
+  &-item {
+    font-variant: all-small-caps;
+    font-weight: bold;
+    color: #eee5ec;
+    background-color: #093bbb;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    &:hover {
+      color: #c6bec4;
+    }
+  }
+}
