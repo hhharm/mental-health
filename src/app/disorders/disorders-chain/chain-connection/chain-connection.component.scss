@@ -1,0 +1,27 @@
+.chain-connection {
+  height: var(--chain-node-size);
+  display: flex;
+  align-items: center;
+
+  &._right {
+    border: var(--border-width) solid var(--chain-connection-main-color);
+    width: var(--chain-connection-size);
+    height: 1px;
+    border-radius: 50px;
+  }
+
+  &._arrow::after {
+    $border: calc(2 * var(--border-width));
+    content: "";
+    position: relative;
+    left: calc(var(--chain-connection-size) - 30px);
+    border: solid var(--chain-connection-main-color);
+    border-width: 0 $border $border 0;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    border-radius: 5px;
+  }
+}
+

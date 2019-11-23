@@ -1,0 +1,26 @@
+@import 'colors';
+@import "variables";
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  //chain-node
+  --chain-node-main-color: #{$chain-node-main-color};
+  --chain-node-border-color: #{$chain-node-border-color};
+  --chain-node-size: #{$chain-node-size};
+
+  //chain-connection
+  --chain-connection-main-color: #{$chain-connection-main-color};
+  --chain-connection-size: #{$chain-connection-size};
+
+  //  common
+  --border-width: #{$border-width};
+}

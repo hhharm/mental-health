@@ -1,0 +1,22 @@
+.chain-node {
+  background-color: var(--chain-node-main-color);
+  border: var(--border-width) solid var(--chain-node-border-color);
+  border-radius: 50%;
+
+  height: var(--chain-node-size);
+  width: var(--chain-node-size);
+
+  margin: 10px;
+  padding: 20px 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  word-break: break-word;
+  text-align: center;
+
+  &:hover {
+    //background-color: da;
+  }
+}

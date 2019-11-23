@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {DisorderInfo} from '../../models/disorder-info.model';
 
 @Component({
   selector: 'app-chain-node',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChainNodeComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  info: DisorderInfo;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

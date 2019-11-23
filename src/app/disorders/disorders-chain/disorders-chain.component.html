@@ -1,7 +1,4 @@
-<p>disorders-chain works!</p>
-<div *ngFor="let disorder of disorderKeys; trackBy: trackByFn"
-     [title]="disordersModel[disorder].info"
->
-  I'm {{disordersModel[disorder].label}} !
-
-</div>
+<ng-container *ngFor="let disorder of disorderKeys; index as i; trackBy: trackByFn">
+  <app-chain-node [info]="disordersModel[disorder]"></app-chain-node>
+  <app-chain-connection [arrow]="i === disorderKeys.length-1"></app-chain-connection>
+</ng-container>
