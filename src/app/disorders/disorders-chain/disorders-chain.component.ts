@@ -1,11 +1,12 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, OnInit} from '@angular/core';
 import {DisorderInfo} from '../models/disorder-info.model';
 import {KeyMap} from '../../shared/models/map.model';
 
 @Component({
   selector: 'app-disorders-chain',
   templateUrl: './disorders-chain.component.html',
-  styleUrls: ['./disorders-chain.component.scss']
+  styleUrls: ['./disorders-chain.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DisordersChainComponent implements OnInit {
   @HostBinding('class.disorders-chain') hostClass = true;
