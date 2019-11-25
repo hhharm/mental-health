@@ -22,6 +22,7 @@ export class DbtTrainingComponent implements OnInit {
   }
 
   selectChapter(num: number) {
+    // todo: do this through router query params
     this.chapter = num;
     this.target && this.target.nativeElement.scrollIntoView({behavior: 'smooth'});
   }
