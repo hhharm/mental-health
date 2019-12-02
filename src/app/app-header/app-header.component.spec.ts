@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DbtHeaderComponent } from './dbt-header.component';
+import { AppHeaderComponent } from './app-header.component';
 
 describe('DbtHeaderComponent', () => {
-  let component: DbtHeaderComponent;
-  let fixture: ComponentFixture<DbtHeaderComponent>;
+  let component: AppHeaderComponent;
+  let fixture: ComponentFixture<AppHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DbtHeaderComponent ]
+      declarations: [ AppHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DbtHeaderComponent);
+    fixture = TestBed.createComponent(AppHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

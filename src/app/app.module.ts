@@ -7,6 +7,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {DisordersComponent} from './disorders/disorders.component';
 import {DbtComponent} from './dbt/dbt.component';
 import {DbtModule} from './dbt/dbt.module';
+import {AppHeaderModule} from './app-header/app-header.module';
 
 const appRoutes: Routes = [
   {path: 'disorders', component: DisordersComponent},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     BrowserModule,
     DisordersModule,
     DbtModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AppHeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

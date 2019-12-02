@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DbtComponent } from './dbt.component';
 import {DbtTrainingModule} from './dbt-training/dbt-training.module';
-import {DbtHeaderModule} from './dbt-header/dbt-header.module';
+import {AppHeaderModule} from '../app-header/app-header.module';
 
 
 
@@ -11,7 +11,7 @@ import {DbtHeaderModule} from './dbt-header/dbt-header.module';
   imports: [
     CommonModule,
     DbtTrainingModule,
-    DbtHeaderModule
+    AppHeaderModule
   ]
 })
 export class DbtModule { }

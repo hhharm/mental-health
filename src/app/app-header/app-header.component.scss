@@ -1,0 +1,30 @@
+.app-header__content {
+  padding: 10px 10px 0;
+  border-bottom: 1px solid #0884c3;
+  background-color: #03257A;
+
+  &-item {
+    font-variant: all-small-caps;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #886ADF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: 10px;
+
+    &._active {
+      color: #FFF;
+      background-color: #093bbb;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: #093bbb;
+      background-color: #886ADF;
+    }
+  }
+}
