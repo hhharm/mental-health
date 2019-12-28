@@ -1,4 +1,8 @@
 import {ChangeDetectionStrategy, Component, ElementRef, HostBinding, OnInit, ViewChild} from '@angular/core';
+import {MenuStateService} from '../../shared/menu-state.service';
+import {Observable} from 'rxjs';
+// import {select} from '@angular-redux/store';
+// import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-dbt-training',
@@ -12,13 +16,16 @@ export class DbtTrainingComponent implements OnInit {
 
   @ViewChild('target', {static: false}) target: ElementRef;
   @ViewChild('navigation', {static: false}) navigationEl: ElementRef;
-  public navVisible = true;
+
+  public navVisible: Observable<boolean>;
+
   public chapter = 1;
 
-  constructor() {
+  constructor(private menuService: MenuStateService) {
   }
 
   ngOnInit() {
+    this.navVisible = this.menuService.getMenuState();
   }
 
   selectChapter(num: number) {

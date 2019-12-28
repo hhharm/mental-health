@@ -1,4 +1,20 @@
+:host {
+  display: flex;
+}
 .dbt-training {
+display: flex;
+
+  &__left {
+    max-width: 275px;
+    width: 275px;
+    display: inline-block;
+    border-right: 1px solid rgba(8, 162, 235, 0.21);
+    padding-right: 10px;
+    box-shadow: 2px 1px 7px rgba(8, 162, 235, 0.21);
+  }
+  &__right {
+    display: inline-block;
+  }
   &__nav {
     padding: 0 10px;
 

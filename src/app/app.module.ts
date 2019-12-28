@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {DisordersModule} from './disorders/disorders.module';
 import {RouterModule, Routes} from '@angular/router';
@@ -8,6 +7,7 @@ import {DisordersComponent} from './disorders/disorders.component';
 import {DbtComponent} from './dbt/dbt.component';
 import {DbtModule} from './dbt/dbt.module';
 import {AppHeaderModule} from './app-header/app-header.module';
+import {StoreModule} from '@ngrx/store';
 
 const appRoutes: Routes = [
   {path: 'disorders', component: DisordersComponent},

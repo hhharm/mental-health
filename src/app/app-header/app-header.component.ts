@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {MenuStateService} from '../shared/menu-state.service';
 
 @Component({
   selector: 'app-dbt-header',
@@ -7,8 +8,12 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppHeaderComponent implements OnInit {
+  constructor(private menuService: MenuStateService) {
+  }
 
-  constructor() { }
+  public _hamburgerClick(): void {
+    this.menuService.toggleMenu();
+  }
 
   ngOnInit() {
   }
