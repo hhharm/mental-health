@@ -9,13 +9,17 @@
 *:focus {
   outline: 0;
   color: blueviolet;
-  background-color: #dff3ff;
 }
 
-
+.page-content {
+  //75px is footer + header
+  min-height: calc(100vh - 75px);
+}
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  height: 100%;
 }
 
 :root {
