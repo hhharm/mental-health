@@ -1,10 +1,40 @@
 .dbt-training-navigation {
+  &__subtitle {
+    font-variant: all-petite-caps;
+    min-width: 275px;
+    text-align: center;
+    margin: 0;
+    padding: 2px 0;
+    font-size: 16px;
+    color: #1a1c5b;
+    text-decoration: underline;
+    background-color: #f2f2f2;
+  }
+
   &__nav {
-    padding: 0 10px;
+    padding: 10px 20px 10px 10px;
+
+    &._disabled {
+      color: lightgray;
+
+      .dbt-training-navigation__nav-elem {
+        color: lightgray;
+      }
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dff3ff;
+    }
 
     &._active {
       color: blueviolet;
-      background-color: #dff3ff;
+      background-color: #b6deff;
     }
 
     &-toggle {
@@ -14,7 +44,6 @@
       border-left: $size solid transparent;
       border-right: $size solid transparent;
       display: inline-block;
-      cursor: pointer;
       margin: 0 10px;
 
       border-top: $size solid var(--link-color);

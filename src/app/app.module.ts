@@ -8,6 +8,8 @@ import {DbtComponent} from './dbt/dbt.component';
 import {DbtModule} from './dbt/dbt.module';
 import {AppHeaderModule} from './app-header/app-header.module';
 import {dbtTrainingRoutes} from './dbt/dbt-routing.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppFooterComponent} from './app-footer/app-footer.component';
 
 const appRoutes: Routes = [
   {path: 'disorders', component: DisordersComponent},
@@ -28,14 +30,16 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppFooterComponent
   ],
   imports: [
     BrowserModule,
     DisordersModule,
     DbtModule,
     RouterModule.forRoot(appRoutes),
-    AppHeaderModule
+    AppHeaderModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

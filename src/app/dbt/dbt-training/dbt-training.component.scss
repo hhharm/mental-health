@@ -1,5 +1,6 @@
 :host {
   display: flex;
+
 }
 
 //TODO: fix styles for mobile
@@ -11,7 +12,6 @@
     width: 275px;
     display: inline-block;
     border-right: 1px solid rgba(8, 162, 235, 0.21);
-    padding-right: 10px;
     box-shadow: 2px 1px 7px rgba(8, 162, 235, 0.21);
   }
 
