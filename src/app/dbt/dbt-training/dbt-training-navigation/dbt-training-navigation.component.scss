@@ -75,4 +75,25 @@
       }
     }
   }
+
+  &__group {
+    background-color: white;
+    border-bottom: 1px solid #b6deff;
+    padding-bottom: 5px;
+
+    &-subtitle {
+      margin: 0;
+      text-decoration: underline;
+      text-align: center;
+      font-size: 16px;
+      font-style: italic;
+      color: #b6deff;
+      //  todo: add style for elements
+      //  todo: add animation and group hide
+    }
+
+    &-elem {
+      display: block;
+    }
+  }
 }

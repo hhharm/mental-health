@@ -19,12 +19,12 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dbt',
+    redirectTo: '/dbt/bpd-theory',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/dbt'
+    redirectTo: '/dbt/bpd-theory'
   }
 ];
 

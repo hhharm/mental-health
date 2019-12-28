@@ -10,22 +10,22 @@ import {animate, style, transition, trigger} from '@angular/animations';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger(
-      'inOutAnimation',
+      'widthInOutAnimation',
       [
         transition(
           ':enter',
           [
-            style({height: 0, opacity: 0}),
-            animate('0.3s ease',
-              style({height: '100vh', opacity: 1}))
+            style({width: 0, opacity: 0}),
+            animate('0.3s ease-out',
+              style({width: '100%', opacity: 1}))
           ]
         ),
         transition(
           ':leave',
           [
-            style({height: '100vh', opacity: 1}),
-            animate('0.3s ease',
-              style({height: 0, opacity: 0}))
+            style({width: '100%', opacity: 1}),
+            animate('0.3s ease-in',
+              style({width: 0, opacity: 0}))
           ]
         )
       ]
