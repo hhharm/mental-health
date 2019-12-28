@@ -7,11 +7,14 @@ import {DisordersComponent} from './disorders/disorders.component';
 import {DbtComponent} from './dbt/dbt.component';
 import {DbtModule} from './dbt/dbt.module';
 import {AppHeaderModule} from './app-header/app-header.module';
-import {StoreModule} from '@ngrx/store';
+import {dbtTrainingRoutes} from './dbt/dbt-routing.module';
 
 const appRoutes: Routes = [
   {path: 'disorders', component: DisordersComponent},
-  {path: 'dbt', component: DbtComponent},
+  {
+    path: 'dbt', component: DbtComponent,
+    children: dbtTrainingRoutes
+  },
   {
     path: '',
     redirectTo: '/dbt',

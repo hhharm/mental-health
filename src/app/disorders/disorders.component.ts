@@ -8,7 +8,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class DisordersComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

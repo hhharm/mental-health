@@ -9,7 +9,9 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 export class ChainConnectionComponent implements OnInit {
 
   @Input() arrow: boolean;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

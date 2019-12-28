@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ChainConnectionComponent } from './chain-connection.component';
+import {ChainConnectionComponent} from './chain-connection.component';
 
 describe('ChainConnectionComponent', () => {
   let component: ChainConnectionComponent;
@@ -8,9 +8,9 @@ describe('ChainConnectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChainConnectionComponent ]
+      declarations: [ChainConnectionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,8 +1,10 @@
 :host {
   display: flex;
 }
+
+//TODO: fix styles for mobile
 .dbt-training {
-display: flex;
+  display: flex;
 
   &__left {
     max-width: 275px;
@@ -12,52 +14,10 @@ display: flex;
     padding-right: 10px;
     box-shadow: 2px 1px 7px rgba(8, 162, 235, 0.21);
   }
+
   &__right {
     display: inline-block;
-  }
-  &__nav {
-    padding: 0 10px;
-
-    &-toggle {
-      $size: 10px;
-      width: 0;
-      height: 0;
-      border-left: $size solid transparent;
-      border-right: $size solid transparent;
-      display: inline-block;
-      cursor: pointer;
-      margin: 0 10px;
-
-      border-top: $size solid var(--link-color);
-      border-bottom: 0;
-      &._visible {
-        border-top: 0;
-        border-bottom:$size solid var(--link-color);
-      }
-
-    }
-
-    &-elem {
-      color: var(--link-color);
-      padding-top: 10px;
-      margin: 0;
-
-      &-subtitle {
-        margin: 0;
-        font-variant: small-caps;
-        font-style: italic;
-      }
-
-      cursor: pointer;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
-    }
+    padding: 10px 10px 10px 20px;
   }
 
-  &__chapter {
-    padding: 10px;
-  }
 }

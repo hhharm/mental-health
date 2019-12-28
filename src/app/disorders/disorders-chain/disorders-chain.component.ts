@@ -47,7 +47,7 @@ export class DisordersChainComponent implements OnInit {
 
   ngOnInit() {
     this.disorderKeys = Object.keys(this.disordersModel);
-}
+  }
 
   public trackByFn(index: number, item: DisorderInfo): string {
     return item.id;

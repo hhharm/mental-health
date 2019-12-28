@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-dbt-skill-mindfulness',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DbtSkillMindfulnessComponent implements OnInit {
   // TODO: move this to something different
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

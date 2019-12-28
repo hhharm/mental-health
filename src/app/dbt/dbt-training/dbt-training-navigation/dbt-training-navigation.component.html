@@ -1,0 +1,42 @@
+<h1>Содержание</h1>
+<ul>
+  <!--      todo: style nav elements properly-->
+  <!--      todo: separate scroll for navigation and for content-->
+  <!--      todo: add router animation-->
+  <li (click)="selectChapter(1)" routerLink="/dbt/bpd-theory"
+      routerLinkActive="_active">
+    <p class="dbt-training-navigation__nav-elem">Тренинг психосоциальных навыков для клиентов с ПРЛ: обоснование</p>
+    <p class="dbt-training-navigation__nav-elem-subtitle">Зачем нужен тренинг и для кого предназначен?</p>
+  </li>
+
+  <li (click)="selectChapter(2)" routerLink="/dbt/training-format"
+      routerLinkActive="_active">
+    <p class="dbt-training-navigation__nav-elem">Практичские аспекты тренинга психосоциальных навыков</p>
+    <p class="dbt-training-navigation__nav-elem-subtitle">Какие варианты организации тренинга? Какие могут быть виды
+      групп,
+      состав ведущих, взаимоотношения между ведущим(и) и индивидуальным терапевтом? Как можно разбить материал на
+      модули?</p>
+  </li>
+
+  <li (click)="selectChapter(3)" routerLink="/dbt/training-process"
+      routerLinkActive="_active">
+    <p class="dbt-training-navigation__nav-elem">Формат сеанса и начальный этап тренинга навыков</p>
+    <p class="dbt-training-navigation__nav-elem-subtitle">Из чего состоит сеанс? Что происходит в начале тренинга? Какие
+      есть
+      правила участия в тренинге?</p>
+  </li>
+  <li (click)="selectChapter(4)" class="dbt-training-navigation__nav-elem"
+      routerLink="/dbt/mindfulness"
+      routerLinkActive="_active"
+  >Основные навыки психической вовлеченности
+  </li>
+  <li (click)="selectChapter(5)" class="dbt-training-navigation__nav-elem"
+      routerLinkActive="_active">Навыки межличной эффективности
+  </li>
+  <li (click)="selectChapter(6)" class="dbt-training-navigation__nav-elem"
+      routerLinkActive="_active">Навыки эмоциональной регуляции
+  </li>
+  <li (click)="selectChapter(7)" class="dbt-training-navigation__nav-elem"
+      routerLinkActive="_active">Навыки для перенесения дистресса
+  </li>
+</ul>
