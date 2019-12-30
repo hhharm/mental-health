@@ -8,7 +8,7 @@
     font-size: 16px;
     color: #1a1c5b;
     text-decoration: underline;
-    background-color: #f2f2f2;
+    background-color: #d1f2f7;
   }
 
   &__nav {
@@ -65,6 +65,7 @@
         margin: 0;
         font-variant: small-caps;
         font-style: italic;
+        font-size: 14px;
       }
 
       cursor: pointer;
@@ -78,22 +79,34 @@
 
   &__group {
     background-color: white;
-    border-bottom: 1px solid #b6deff;
     padding-bottom: 5px;
 
     &-subtitle {
+      background-color: #f2f2f2;
       margin: 0;
-      text-decoration: underline;
       text-align: center;
       font-size: 16px;
       font-style: italic;
-      color: #b6deff;
-      //  todo: add style for elements
-      //  todo: add animation and group hide
     }
 
     &-elem {
+      text-decoration: none;
       display: block;
+      border-bottom: 1px solid #b6deff;
+      border-collapse: collapse;
+      padding: 5px 10px;
+      color: var(--link-color);
+
+      &:hover {
+        background-color: #dff3ff;
+
+        text-decoration: underline;
+      }
+
+      &._active {
+        color: blueviolet;
+        background-color: #ebf6ff;
+      }
     }
   }
 }

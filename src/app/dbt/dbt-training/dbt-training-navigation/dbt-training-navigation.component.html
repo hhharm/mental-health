@@ -1,76 +1,83 @@
 <!--      todo: style nav elements properly-->
 <!--      todo: separate scroll for navigation and for content-->
 <!--      todo: add router animation-->
+<div (click)="selectChapter($event)">
 <h2 class="dbt-training-navigation__subtitle">Вводная информация</h2>
-<div (click)="selectChapter(1)" class="dbt-training-navigation__nav" routerLink="/dbt/bpd-theory"
-     routerLinkActive="_active">
-  <a class="dbt-training-navigation__nav-elem"
-  >Общая информация о тренинге
-  </a>
-  <p class="dbt-training-navigation__nav-elem-subtitle">Зачем нужен тренинг и для кого предназначен?</p>
+  <div class="dbt-training-navigation__nav" routerLink="/dbt/bpd-theory"
+       routerLinkActive="_active">
+    <a class="dbt-training-navigation__nav-elem"
+    >Общая информация о тренинге
+    </a>
+    <p class="dbt-training-navigation__nav-elem-subtitle">Зачем нужен тренинг и для кого предназначен?</p>
 </div>
 
-<div (click)="selectChapter(2)" class="dbt-training-navigation__nav" routerLink="/dbt/training-format"
-     routerLinkActive="_active">
-  <a
-    class="dbt-training-navigation__nav-elem">
-    Возможные форматы проведения тренига
-  </a>
-  <p class="dbt-training-navigation__nav-elem-subtitle">Какие варианты организации тренинга? Как можно разбить материал
-    на
-    модули?</p>
+  <div class="dbt-training-navigation__nav" routerLink="/dbt/training-format"
+       routerLinkActive="_active">
+    <a
+      class="dbt-training-navigation__nav-elem">
+      Возможные форматы проведения тренига
+    </a>
+    <p class="dbt-training-navigation__nav-elem-subtitle">Какие варианты организации тренинга? Как можно разбить материал
+      на
+      модули?</p>
 </div>
 
-<div (click)="selectChapter(3)" class="dbt-training-navigation__nav" routerLink="/dbt/training-process"
-     routerLinkActive="_active">
-  <a
-    class="dbt-training-navigation__nav-elem">Организация сеанса
-  </a>
-  <p class="dbt-training-navigation__nav-elem-subtitle">Из чего состоит сеанс? Что происходит в начале тренинга? Какие
-    есть
-    правила участия в тренинге?</p>
+  <div class="dbt-training-navigation__nav" routerLink="/dbt/training-process"
+       routerLinkActive="_active">
+    <a
+      class="dbt-training-navigation__nav-elem">Организация сеанса
+    </a>
+    <p class="dbt-training-navigation__nav-elem-subtitle">Из чего состоит сеанс? Что происходит в начале тренинга? Какие
+      есть
+      правила участия в тренинге?</p>
 </div>
 
-<h2 class="dbt-training-navigation__subtitle">Модули</h2>
-<div (click)="selectChapter(4)" class="dbt-training-navigation__nav" routerLink="/dbt/mindfulness"
-     routerLinkActive="_active">
-  <a class="dbt-training-navigation__nav-elem">Навыки психической вовлеченности </a>
+  <h2 class="dbt-training-navigation__subtitle">Модули</h2>
+  <!--todo: expand on route-->
+  <div class="dbt-training-navigation__nav" routerLink="/dbt/mindfulness"
+       routerLinkActive="_active">
+    <a class="dbt-training-navigation__nav-elem">Навыки психической вовлеченности </a>
 </div>
 <div *ngIf="chapter === 4" [@expandCollapseAnimation] class="dbt-training-navigation__group">
   <h3 class="dbt-training-navigation__group-subtitle">"Что"</h3>
   <!--  todo: create components for every skill; create routes-->
-  <a class="dbt-training-navigation__group-elem">Наблюдение</a>
-  <a class="dbt-training-navigation__group-elem">Описание</a>
-  <a class="dbt-training-navigation__group-elem">Участие</a>
+  <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/observe"
+     routerLinkActive="_active">Наблюдение</a>
+  <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/describe"
+     routerLinkActive="_active">Описание</a>
+  <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/participate"
+     routerLinkActive="_active">Участие</a>
   <h3 class="dbt-training-navigation__group-subtitle">"Как"</h3>
-  <a class="dbt-training-navigation__group-elem">Без оценки</a>
-  <a class="dbt-training-navigation__group-elem">Делая что-то одно</a>
-  <a class="dbt-training-navigation__group-elem">Эффективно</a>
+  <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/noncritical"
+     routerLinkActive="_active">Без оценки</a>
+  <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/onemindly"
+     routerLinkActive="_active">Делая что-то одно</a>
+  <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/effectively"
+     routerLinkActive="_active">Эффективно</a>
 </div>
 
-<div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
-  <!--     routerLink="/dbt/bpd-theory"-->
-  <!--     routerLinkActive="_active"-->
-  <!--   (click)="selectChapter(5)"-->
-  <a class="dbt-training-navigation__nav-elem"
-  >Навыки межличной эффективности
-  </a>
+  <div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
+    <!--     routerLink="/dbt/bpd-theory"-->
+    <!--     routerLinkActive="_active"-->
+    <!--   (click)="selectChapter(5)"-->
+    <a class="dbt-training-navigation__nav-elem"
+    >Навыки межличной эффективности
+    </a>
 </div>
 
-<div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
-  <!--     routerLink="/dbt/bpd-theory"-->
-  <!--     routerLinkActive="_active"-->
-  <!--  (click)="selectChapter(6)" -->
-  <a class="dbt-training-navigation__nav-elem"
-  >Навыки эмоциональной регуляции
-  </a>
+  <div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
+    <!--     routerLink="/dbt/bpd-theory"-->
+    <!--     routerLinkActive="_active"-->
+    <a class="dbt-training-navigation__nav-elem"
+    >Навыки эмоциональной регуляции
+    </a>
 </div>
 
-<div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
-  <!--     routerLink="/dbt/bpd-theory"-->
-  <!--     routerLinkActive="_active"-->
-  <!--  (click)="selectChapter(7)"-->
-  <a class="dbt-training-navigation__nav-elem"
-  >Навыки для перенесения дистресса
-  </a>
+  <div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
+    <!--     routerLink="/dbt/bpd-theory"-->
+    <!--     routerLinkActive="_active"-->
+    <a class="dbt-training-navigation__nav-elem"
+    >Навыки для перенесения дистресса
+    </a>
+</div>
 </div>

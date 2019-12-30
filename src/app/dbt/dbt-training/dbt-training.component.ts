@@ -15,17 +15,17 @@ import {animate, style, transition, trigger} from '@angular/animations';
         transition(
           ':enter',
           [
-            style({width: 0, opacity: 0}),
+            style({height: 0, width: 0, opacity: 0}),
             animate('0.3s ease-out',
-              style({width: '100%', opacity: 1}))
+              style({height: '100%', width: '100%', opacity: 1}))
           ]
         ),
         transition(
           ':leave',
           [
-            style({width: '100%', opacity: 1}),
+            style({height: '100%', width: '100%', opacity: 1}),
             animate('0.3s ease-in',
-              style({width: 0, opacity: 0}))
+              style({height: 0, width: 0, opacity: 0}))
           ]
         )
       ]

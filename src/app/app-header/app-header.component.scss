@@ -6,7 +6,6 @@
   height: 40px;
 
   &__content {
-    padding: 10px 10px 0;
     border-bottom: 1px solid #0884c3;
     background-color: #03257A;
 
@@ -21,6 +20,13 @@
       font-size: 1.2em;
       cursor: pointer;
       margin-right: 10px;
+      @media screen {
+        //  todo: only for mobile
+        //  display: block;
+        //  border-top-left-radius: 0px;
+        //  border-top-right-radius: 0px;
+      }
+
 
       &._active {
         color: #FFF;

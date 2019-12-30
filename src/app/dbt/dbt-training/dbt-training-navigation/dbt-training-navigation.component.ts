@@ -1,5 +1,10 @@
-import {ChangeDetectionStrategy, Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {filter} from 'rxjs/operators';
+import {BASE_URL, moduleUrls} from '../../dbt-routing.module';
+import {MenuStateService} from '../../../shared/menu-state.service';
 
 @Component({
   selector: 'app-dbt-training-navigation',
@@ -30,20 +35,44 @@ import {animate, style, transition, trigger} from '@angular/animations';
     )
   ]
 })
-export class DbtTrainingNavigationComponent implements OnInit {
-
+export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
+  // todo: find out how to get mobile/not mobile
+  private mobile = false;
   @HostBinding('class.dbt-training-navigation') class = true;
   public chapter = 1;
+  private routeSubscription: Subscription;
 
-  constructor() {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private cdr: ChangeDetectorRef,
+              private menuService: MenuStateService) {
   }
 
   ngOnInit() {
+    // TODO: fix for first page open
+    this.routeSubscription =
+      this.router.events
+        .pipe(filter(params => params instanceof NavigationEnd))
+        .subscribe((params: NavigationEnd) => {
+          // todo: think how to do this normal way. Perhaps somehow use inner router outlet to get only "chopped" urls
+          if (params.url.includes(BASE_URL + moduleUrls.mindfulness)) {
+            this.chapter = 4;
+            this.cdr.markForCheck();
+          } else {
+            this.chapter = undefined;
+          }
+          if (this.mobile) {
+            // todo: store chapter number in menu service
+            this.menuService.toggleMenu();
+          }
+        });
   }
 
-  selectChapter(num: number) {
-    // todo: do this through router query params
-    this.chapter = num;
+  ngOnDestroy(): void {
+    this.routeSubscription && this.routeSubscription.unsubscribe();
+  }
+
+  selectChapter($event) {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
