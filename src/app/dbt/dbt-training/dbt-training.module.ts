@@ -7,6 +7,7 @@ import {DbtTrainingOrgmomentsComponent} from './dbt-training-orgmoments-3/dbt-tr
 import {RouterModule} from '@angular/router';
 import {DbtTrainingNavigationComponent} from './dbt-training-navigation/dbt-training-navigation.component';
 import {DbtSkillMindfulnessModule} from './dbt-module-mindfulness-4/dbt-skill-mindfullness.module';
+import {DbtCommunicationModule} from './dbt-module-communication/dbt-communication.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {DbtSkillMindfulnessModule} from './dbt-module-mindfulness-4/dbt-skill-mi
   ],
   imports: [
     DbtSkillMindfulnessModule,
+    DbtCommunicationModule,
     CommonModule,
     RouterModule
   ]
