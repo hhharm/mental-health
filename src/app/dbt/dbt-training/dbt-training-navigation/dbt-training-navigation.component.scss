@@ -98,6 +98,11 @@
       border-collapse: collapse;
       padding: 5px 10px;
       color: var(--link-color);
+      &._disabled {
+        color: lightgray;
+        pointer-events: none;
+        cursor: default;
+      }
 
       &:hover {
         background-color: #dff3ff;
