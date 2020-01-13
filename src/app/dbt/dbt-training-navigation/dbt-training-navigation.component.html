@@ -1,5 +1,4 @@
 <!--      todo: style nav elements properly-->
-<!--      todo: separate scroll for navigation and for content-->
 <!--      todo: add router animation-->
 <div (click)="selectChapter($event)">
   <h2 class="dbt-training-navigation__subtitle">Вводная информация</h2>
@@ -34,13 +33,12 @@
   </div>
 
   <h2 class="dbt-training-navigation__subtitle">Модули</h2>
-  <!--todo: expand on route-->
   <div class="dbt-training-navigation__nav" routerLink="/dbt/mindfulness"
        routerLinkActive="_active">
     <a class="dbt-training-navigation__nav-elem">Навыки психической вовлеченности </a>
   </div>
   <div class="dbt-training-navigation__group"
-       *ngIf="chapter === 4" [@expandCollapseAnimation]>
+       *ngIf="(chapter$ | async) === 4" [@expandCollapseAnimation]>
     <h3 class="dbt-training-navigation__group-subtitle">"Что"</h3>
     <!--  todo: create components for every skill; create routes-->
     <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/observe"

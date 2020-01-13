@@ -27,8 +27,13 @@
     display: block;
   }
 
-  .dbt-training__left {
-    width: auto;
-    height: auto;
+  .dbt-training {
+    &__left {
+      width: auto;
+      height: auto;
+    }
+    &__right._fixed {
+      position: fixed;
+    }
   }
 }

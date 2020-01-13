@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostListener, OnInit} from '@angular/core';
+import {MenuStateService} from './shared/menu-state.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,18 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'mental-health';
+
+  constructor(private menuService: MenuStateService) {
+  }
+
+  ngOnInit(): void {
+    this.menuService.setWindowSize(window.innerWidth);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.menuService.setWindowSize(window.innerWidth);
+  }
 }

@@ -4,7 +4,9 @@
 >
 </app-dbt-training-navigation>
 
-<div class="dbt-training__right">
+<div class="dbt-training__right"
+     [class._fixed]="navVisible | async"
+>
   <router-outlet></router-outlet>
   <!--  todo: add navigation buttons: next, to top and previous-->
 </div>

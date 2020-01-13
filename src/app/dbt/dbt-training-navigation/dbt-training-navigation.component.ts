@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {BASE_URL, moduleUrls} from '../dbt-routing.module';
 import {MenuStateService} from '../../shared/menu-state.service';
@@ -36,9 +36,12 @@ import {MenuStateService} from '../../shared/menu-state.service';
   ]
 })
 export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
-  @HostBinding('class.dbt-training-navigation') class = true;
-  public chapter = 1;
+  @HostBinding('class.dbt-training-navigation')
+  public class = true;
+
+  public chapter$: Observable<number> = this.menuService.getSelectedChapter();
   private routeSubscription: Subscription;
+
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -46,24 +49,18 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
               private menuService: MenuStateService) {
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.menuService.setWindowSize(window.innerWidth);
-  }
-
   ngOnInit() {
     // TODO: fix for first page open
-    this.menuService.setWindowSize(window.innerWidth);
     this.routeSubscription =
       this.router.events
         .pipe(filter(params => params instanceof NavigationEnd))
         .subscribe((params: NavigationEnd) => {
           // todo: think how to do this normal way. Perhaps somehow use inner router outlet to get only "chopped" urls
           if (params.url.includes(BASE_URL + moduleUrls.mindfulness)) {
-            this.chapter = 4;
+            this.menuService.setChapter(4);
             this.cdr.markForCheck();
           } else {
-            this.chapter = undefined;
+            this.menuService.setChapter(undefined);
           }
         });
   }
