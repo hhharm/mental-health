@@ -1,12 +1,8 @@
 :host {
   display: flex;
-
 }
 
-//TODO: fix styles for mobile
 .dbt-training {
-  display: flex;
-
   &__left {
     width: 275px;
     display: inline-block;
@@ -16,22 +12,23 @@
     overflow-x: hidden;
     flex-shrink: 0;
     height: 100vh;
+    background-color: white;
   }
 
   &__right {
     display: inline-block;
     padding: 10px 10px 10px 20px;
   }
-//  todo: make content scrollable and top & navigation fixed. Just as in angular docs
 
 }
 
-@media screen {
-  //(max-width: 700px);
-  //:host {
-  //  flex-wrap: wrap;
-  //}
-  //.dbt-training__left {
-  //  width: 100vw;
-  //}
+@media (max-width: 700px) {
+  :host {
+    display: block;
+  }
+
+  .dbt-training__left {
+    width: auto;
+    height: auto;
+  }
 }

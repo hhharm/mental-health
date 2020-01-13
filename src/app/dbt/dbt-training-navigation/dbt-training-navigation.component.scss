@@ -1,4 +1,10 @@
+:host {
+  position: sticky;
+  top: var(--header-height);
+}
+
 .dbt-training-navigation {
+
   &__subtitle {
     min-width: 275px;
     font-variant: all-petite-caps;
@@ -98,6 +104,7 @@
       border-collapse: collapse;
       padding: 5px 10px;
       color: var(--link-color);
+
       &._disabled {
         color: lightgray;
         pointer-events: none;

@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import {BASE_URL, moduleUrls} from '../../dbt-routing.module';
-import {MenuStateService} from '../../../shared/menu-state.service';
+import {BASE_URL, moduleUrls} from '../dbt-routing.module';
+import {MenuStateService} from '../../shared/menu-state.service';
 
 @Component({
   selector: 'app-dbt-training-navigation',
@@ -36,8 +36,6 @@ import {MenuStateService} from '../../../shared/menu-state.service';
   ]
 })
 export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
-  // todo: find out how to get mobile/not mobile
-  private mobile = false;
   @HostBinding('class.dbt-training-navigation') class = true;
   public chapter = 1;
   private routeSubscription: Subscription;
@@ -48,8 +46,14 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
               private menuService: MenuStateService) {
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.menuService.setWindowSize(window.innerWidth);
+  }
+
   ngOnInit() {
     // TODO: fix for first page open
+    this.menuService.setWindowSize(window.innerWidth);
     this.routeSubscription =
       this.router.events
         .pipe(filter(params => params instanceof NavigationEnd))
@@ -61,10 +65,6 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
           } else {
             this.chapter = undefined;
           }
-          if (this.mobile) {
-            // todo: store chapter number in menu service
-            this.menuService.toggleMenu();
-          }
         });
   }
 
@@ -74,6 +74,7 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
 
   selectChapter($event) {
     window.scrollTo({top: 0, behavior: 'smooth'});
+    this.menuService.closeOnClickIfMobile();
   }
 
 }

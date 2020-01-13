@@ -15,6 +15,7 @@
   //75px is footer + header
   min-height: calc(100vh - 75px);
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -35,6 +36,7 @@ body {
 
   //  common
   --border-width: #{$border-width};
+  --header-height: 36px;
 }
 
 ._titlable {

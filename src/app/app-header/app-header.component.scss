@@ -1,9 +1,12 @@
 :host {
   max-width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .app-header {
-  height: 40px;
+  height: var(--header-height);
 
   &__content {
     border-bottom: 1px solid #0884c3;
@@ -20,12 +23,6 @@
       font-size: 1.2em;
       cursor: pointer;
       margin-right: 10px;
-      @media screen {
-        //  todo: only for mobile
-        //  display: block;
-        //  border-top-left-radius: 0px;
-        //  border-top-right-radius: 0px;
-      }
 
 
       &._active {
