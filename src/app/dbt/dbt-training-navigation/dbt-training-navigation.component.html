@@ -15,9 +15,10 @@
        [@expandCollapseAnimation]
        class="dbt-training-navigation__group"
   >
+    <!--      todo: add opened/closed icon (> <)-->
     <ng-container *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn">
       <div (click)="selectChapter($event, menuSubItem,undefined)"
-           *ngIf="menuSubItem.type === 'ITEM'; else innerGroupHeader"
+           *ngIf="menuSubItem.type === 'SUB_ITEM'; else innerGroupHeader"
            [routerLink]="!menuSubItem.disabled && menuSubItem.link"
       >
         <p [class._disabled]="menuSubItem.disabled"

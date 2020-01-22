@@ -1,5 +1,6 @@
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
+import {moduleUrls} from '../dbt/dbt-routing.module';
 
 const MIN_WIDE_SCREEN_WIDTH = 700;
 
@@ -8,8 +9,6 @@ const MIN_WIDE_SCREEN_WIDTH = 700;
 })
 export class MenuStateService {
   private readonly menuSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  private readonly selectedSubject$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
-  private selectedChapter: number;
   private menuOpened = true;
   private windowSize;
 
@@ -30,20 +29,10 @@ export class MenuStateService {
     return this.menuSubject$.asObservable();
   }
 
-  public getSelectedChapter(): Observable<number> {
-    return this.selectedSubject$.asObservable();
-  }
-
-  public setChapter(chapter: number): void {
-    this.selectedChapter = chapter;
-    this.selectedSubject$.next(this.selectedChapter);
-  }
-
   public closeOnClickIfMobile(): void {
-    // todo: fix bug with subchapters - they should expand
     if (this.windowSize < MIN_WIDE_SCREEN_WIDTH) {
       this.menuOpened = false;
-      this.menuSubject$.next(this.menuOpened);
+      this.menuSubject$.next(false);
     }
   }
 }

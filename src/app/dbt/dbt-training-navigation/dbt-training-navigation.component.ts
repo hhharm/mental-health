@@ -1,11 +1,17 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
-import {filter} from 'rxjs/operators';
-import {BASE_URL, moduleUrls} from '../dbt-routing.module';
 import {MenuStateService} from '../../shared/menu-state.service';
 import {MenuItem} from '../../shared/models/menu-item.model';
+
+const URL_TO_INDEX = {
+  'bpd-theory': 1,
+  'training-format': 2,
+  'training-process': 3,
+  'mindfulness': 5,
+  'relationships': 6
+};
 
 @Component({
   selector: 'app-dbt-training-navigation',
@@ -40,7 +46,94 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
   @HostBinding('class.dbt-training-navigation')
   public class = true;
 
-  public chapter$: Observable<number> = this.menuService.getSelectedChapter();
+  private readonly mindfulnessMenuItems: MenuItem = {
+    id: '4',
+    type: 'ITEM',
+    title: 'Навыки психической вовлеченности',
+    link: '/dbt/mindfulness/',
+    childrenVisible: false,
+    children: [
+      {
+        id: 'mindInto',
+        type: 'SUB_ITEM',
+        title: 'Введение',
+        link: '/dbt/mindfulness/intro',
+      },
+      {
+        id: 'mind1',
+        type: 'GROUP_HEADER',
+        title: 'Что'
+      },
+      {
+        id: 'mind2',
+        type: 'SUB_ITEM',
+        link: '/dbt/mindfulness/observe',
+        title: 'Наблюдение',
+      },
+      {
+        id: 'mind3',
+        type: 'SUB_ITEM',
+        link: '/dbt/mindfulness/describe',
+        title: 'Описание',
+        disabled: true
+      },
+      {
+        id: 'mind4',
+        type: 'SUB_ITEM',
+        link: '/dbt/mindfulness/participate',
+        title: 'Участие',
+        disabled: true
+      },
+      {
+        id: 'mind5',
+        type: 'GROUP_HEADER',
+        title: 'Как',
+      },
+      {
+        id: 'mind6',
+        type: 'SUB_ITEM',
+        link: '/dbt/mindfulness/noncritical',
+        title: 'Без оценки',
+        disabled: true
+      },
+      {
+        id: 'mind7',
+        type: 'SUB_ITEM',
+        link: '/dbt/mindfulness/onemindly',
+        title: 'Делая что-то одно',
+        disabled: true
+      },
+      {
+        id: 'mind8',
+        type: 'SUB_ITEM',
+        link: '/dbt/mindfulness/effectively',
+        title: 'Эффективно',
+        disabled: true
+      },
+    ]
+  };
+  private readonly relationshipsMenuItems: MenuItem = {
+    id: '5',
+    type: 'ITEM',
+    link: '/dbt/relationships',
+    title: 'Навыки межличной эффективности',
+    childrenVisible: false,
+    children: [
+      {
+        id: 'relationshipsInto',
+        type: 'SUB_ITEM',
+        title: 'Введение',
+        link: '/dbt/relationships/intro',
+      },
+      {
+        id: 'relationships1',
+        type: 'SUB_ITEM',
+        link: '/dbt/relationships/impair-factors',
+        title: 'Что снижает эффективность',
+        disabled: true
+      }
+    ]
+  };
   public model: MenuItem[] = [
     {
       id: 'h0',
@@ -74,79 +167,8 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
       type: 'GROUP_HEADER',
       title: 'Модули',
     },
-    {
-      id: '4',
-      type: 'ITEM',
-      title: 'Навыки психической вовлеченности',
-      link: '/dbt/mindfulness/',
-      //todo: add expand\collapse logic
-      childrenVisible: true,
-      children: [
-        {
-          id: 'mindInto',
-          type: 'ITEM',
-          title: 'Введение',
-          link: '/dbt/mindfulness/intro',
-        },
-        {
-          id: 'mind1',
-          type: 'GROUP_HEADER',
-          title: 'Что'
-        },
-        {
-          id: 'mind2',
-          type: 'ITEM',
-          link: '/dbt/mindfulness/observe',
-          title: 'Наблюдение',
-        },
-        {
-          id: 'mind3',
-          type: 'ITEM',
-          link: '/dbt/mindfulness/describe',
-          title: 'Описание',
-          disabled: true
-        },
-        {
-          id: 'mind4',
-          type: 'ITEM',
-          link: '/dbt/mindfulness/participate',
-          title: 'Участие',
-          disabled: true
-        },
-        {
-          id: 'mind5',
-          type: 'GROUP_HEADER',
-          title: 'Как',
-        },
-        {
-          id: 'mind6',
-          type: 'ITEM',
-          link: '/dbt/mindfulness/noncritical',
-          title: 'Без оценки',
-          disabled: true
-        },
-        {
-          id: 'mind7',
-          type: 'ITEM',
-          link: '/dbt/mindfulness/onemindly',
-          title: 'Делая что-то одно',
-          disabled: true
-        },
-        {
-          id: 'mind8',
-          type: 'ITEM',
-          link: '/dbt/mindfulness/effectively',
-          title: 'Эффективно',
-          disabled: true
-        },
-      ]
-    },
-    {
-      id: '5',
-      type: 'ITEM',
-      link: '/dbt/relationships',
-      title: 'Навыки межличной эффективности',
-    },
+    this.mindfulnessMenuItems,
+    this.relationshipsMenuItems,
     {
       id: '6',
       type: 'ITEM',
@@ -170,35 +192,34 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // TODO: fix for first page open
-    this.routeSubscription =
-      this.router.events
-        .pipe(filter(params => params instanceof NavigationEnd))
-        .subscribe((params: NavigationEnd) => {
-          // todo: think how to do this normal way. Perhaps somehow use inner router outlet to get only "chopped" urls
-          if (params.url.includes(BASE_URL + moduleUrls.mindfulness)) {
-            this.menuService.setChapter(4);
-            this.cdr.markForCheck();
-          } else {
-            this.menuService.setChapter(undefined);
-          }
-        });
+    if (this.route.firstChild.snapshot.url && this.route.firstChild.snapshot.url[0]) {
+      this.selectChapter(undefined, undefined, URL_TO_INDEX[this.route.firstChild.snapshot.url[0].path]);
+    }
   }
 
   ngOnDestroy(): void {
     this.routeSubscription && this.routeSubscription.unsubscribe();
   }
 
-  selectChapter($event: MouseEvent, menuItem: MenuItem, index: number) {
-    if (!menuItem.children && menuItem.link) {
+  selectChapter($event: MouseEvent, menuItem: MenuItem, index: number): void {
+    const updatedModel = [...this.model];
+    if (menuItem && menuItem.type !== 'SUB_ITEM') {
+      updatedModel.forEach((item, index) => {
+        if (item.children) {
+          updatedModel[index] = {...updatedModel[index], childrenVisible: false};
+        }
+      });
+    }
+    if (menuItem && !menuItem.children && menuItem.link) {
       window.scrollTo({top: 0, behavior: 'smooth'});
       this.menuService.closeOnClickIfMobile();
     } else {
-      $event.preventDefault();
-      const updatedModel = [...this.model];
-      updatedModel[index] = {...updatedModel[index], childrenVisible: !updatedModel[index].childrenVisible};
-      this.model = updatedModel;
+      $event && $event.preventDefault();
+      // $event && $event.stopPropagation();
+      // $event && $event.stopImmediatePropagation();
+      updatedModel[index] = {...updatedModel[index], childrenVisible: !this.model[index].childrenVisible};
     }
+    this.model = updatedModel;
   }
 
   public trackByFn(index: number, item: MenuItem): string {

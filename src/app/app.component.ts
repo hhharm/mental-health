@@ -10,6 +10,7 @@ import {MenuStateService} from './shared/menu-state.service';
 export class AppComponent implements OnInit {
   title = 'mental-health';
 
+  //todo: use latest typescript
   constructor(private menuService: MenuStateService) {
   }
 
