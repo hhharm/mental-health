@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DbtCommunicationIntroComponent } from './dbt-communication-intro/dbt-communication-intro.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {DbtCommunicationIntroComponent} from './dbt-communication-intro/dbt-communication-intro.component';
 
 
 @NgModule({
@@ -10,4 +9,5 @@ import { DbtCommunicationIntroComponent } from './dbt-communication-intro/dbt-co
     CommonModule
   ]
 })
-export class DbtCommunicationModule { }
+export class DbtCommunicationModule {
+}

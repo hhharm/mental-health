@@ -104,6 +104,8 @@
       border-collapse: collapse;
       padding: 5px 10px;
       color: var(--link-color);
+      margin: 0;
+      cursor: pointer;
 
       &._disabled {
         color: lightgray;

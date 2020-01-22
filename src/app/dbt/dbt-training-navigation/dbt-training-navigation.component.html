@@ -1,80 +1,38 @@
-<!--      todo: style nav elements properly-->
 <!--      todo: add router animation-->
-<div (click)="selectChapter($event)">
-  <h2 class="dbt-training-navigation__subtitle">Вводная информация</h2>
-  <div class="dbt-training-navigation__nav" routerLink="/dbt/bpd-theory"
-       routerLinkActive="_active">
-    <a class="dbt-training-navigation__nav-elem"
-    >Общая информация о тренинге
-    </a>
-    <p class="dbt-training-navigation__nav-elem-subtitle">Зачем нужен тренинг и для кого предназначен?</p>
+<ng-container *ngFor="let menuItem of model; index as index; trackBy: trackByFn">
+  <div (click)="selectChapter($event, menuItem, index)" *ngIf="menuItem.type === 'ITEM'; else groupHeader"
+       [class._disabled]="menuItem.disabled"
+       [routerLink]="!menuItem.disabled && menuItem.link"
+       class="dbt-training-navigation__nav"
+       routerLinkActive="_active"
+  >
+    <p class="dbt-training-navigation__nav-elem">{{menuItem.title}}</p>
+    <p *ngIf="menuItem.subtitle"
+       class="dbt-training-navigation__nav-elem-subtitle"
+    >{{menuItem.subtitle}}</p>
   </div>
-
-  <div class="dbt-training-navigation__nav" routerLink="/dbt/training-format"
-       routerLinkActive="_active">
-    <a
-      class="dbt-training-navigation__nav-elem">
-      Возможные форматы проведения тренига
-    </a>
-    <p class="dbt-training-navigation__nav-elem-subtitle">Какие варианты организации тренинга? Как можно разбить
-      материал
-      на
-      модули?</p>
+  <div *ngIf="menuItem.children && menuItem.childrenVisible"
+       [@expandCollapseAnimation]
+       class="dbt-training-navigation__group"
+  >
+    <ng-container *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn">
+      <div (click)="selectChapter($event, menuSubItem,undefined)"
+           *ngIf="menuSubItem.type === 'ITEM'; else innerGroupHeader"
+           [routerLink]="!menuSubItem.disabled && menuSubItem.link"
+      >
+        <p [class._disabled]="menuSubItem.disabled"
+           class="dbt-training-navigation__group-elem"
+           routerLinkActive="_active">{{menuSubItem.title}}</p>
+        <p *ngIf="menuSubItem.subtitle"
+           class="dbt-training-navigation__group-elem-subtitle"
+        >{{menuSubItem.subtitle}}</p>
+      </div>
+      <ng-template #innerGroupHeader>
+        <h3 class="dbt-training-navigation__group-subtitle">{{menuSubItem.title}}</h3>
+      </ng-template>
+    </ng-container>
   </div>
-
-  <div class="dbt-training-navigation__nav" routerLink="/dbt/training-process"
-       routerLinkActive="_active">
-    <a
-      class="dbt-training-navigation__nav-elem">Организация сеанса
-    </a>
-    <p class="dbt-training-navigation__nav-elem-subtitle">Из чего состоит сеанс? Что происходит в начале тренинга? Какие
-      есть
-      правила участия в тренинге?</p>
-  </div>
-
-  <h2 class="dbt-training-navigation__subtitle">Модули</h2>
-  <div class="dbt-training-navigation__nav" routerLink="/dbt/mindfulness"
-       routerLinkActive="_active">
-    <a class="dbt-training-navigation__nav-elem">Навыки психической вовлеченности </a>
-  </div>
-  <div class="dbt-training-navigation__group"
-       *ngIf="(chapter$ | async) === 4" [@expandCollapseAnimation]>
-    <h3 class="dbt-training-navigation__group-subtitle">"Что"</h3>
-    <!--  todo: create components for every skill; create routes-->
-    <a class="dbt-training-navigation__group-elem" routerLink="/dbt/mindfulness/observe"
-       routerLinkActive="_active">Наблюдение</a>
-    <a class="dbt-training-navigation__group-elem  _disabled" routerLink="/dbt/mindfulness/describe"
-       routerLinkActive="_active">Описание</a>
-    <a class="dbt-training-navigation__group-elem  _disabled" routerLink="/dbt/mindfulness/participate"
-       routerLinkActive="_active">Участие</a>
-    <h3 class="dbt-training-navigation__group-subtitle">"Как"</h3>
-    <a class="dbt-training-navigation__group-elem  _disabled" routerLink="/dbt/mindfulness/noncritical"
-       routerLinkActive="_active">Без оценки</a>
-    <a class="dbt-training-navigation__group-elem  _disabled" routerLink="/dbt/mindfulness/onemindly"
-       routerLinkActive="_active">Делая что-то одно</a>
-    <a class="dbt-training-navigation__group-elem  _disabled" routerLink="/dbt/mindfulness/effectively"
-       routerLinkActive="_active">Эффективно</a>
-  </div>
-
-  <div class="dbt-training-navigation__nav" routerLink="/dbt/relationships" routerLinkActive="_active">
-    <a class="dbt-training-navigation__nav-elem"
-    >Навыки межличной эффективности
-    </a>
-  </div>
-
-  <div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
-    <!--     routerLink="/dbt/bpd-theory"-->
-    <!--     routerLinkActive="_active"-->
-    <a class="dbt-training-navigation__nav-elem"
-    >Навыки эмоциональной регуляции
-    </a>
-  </div>
-
-  <div class="dbt-training-navigation__nav _disabled" title="ещё не существует...">
-    <!--     routerLink="/dbt/bpd-theory"-->
-    <!--     routerLinkActive="_active"-->
-    <a class="dbt-training-navigation__nav-elem"
-    >Навыки для перенесения дистресса
-    </a>
-  </div>
-</div>
+  <ng-template #groupHeader>
+    <h2 class="dbt-training-navigation__subtitle">{{menuItem.title}}</h2>
+  </ng-template>
+</ng-container>

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DbtCommunicationIntroComponent } from './dbt-communication-intro.component';
+import {DbtCommunicationIntroComponent} from './dbt-communication-intro.component';
 
 describe('DbtCommunicationIntroComponent', () => {
   let component: DbtCommunicationIntroComponent;
@@ -8,9 +8,9 @@ describe('DbtCommunicationIntroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DbtCommunicationIntroComponent ]
+      declarations: [DbtCommunicationIntroComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
