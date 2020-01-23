@@ -1,39 +1,40 @@
 <!--      todo: add router animation-->
 <ng-container *ngFor="let menuItem of model; index as index; trackBy: trackByFn">
-  <div (click)="selectChapter($event, menuItem, index)" *ngIf="menuItem.type === 'ITEM'; else groupHeader"
-       [class._disabled]="menuItem.disabled"
-       [routerLink]="!menuItem.disabled && menuItem.link"
-       class="dbt-training-navigation__nav"
-       routerLinkActive="_active"
-  >
-    <p class="dbt-training-navigation__nav-elem">{{menuItem.title}}</p>
-    <p *ngIf="menuItem.subtitle"
-       class="dbt-training-navigation__nav-elem-subtitle"
-    >{{menuItem.subtitle}}</p>
-  </div>
-  <div *ngIf="menuItem.children && menuItem.childrenVisible"
-       [@expandCollapseAnimation]
-       class="dbt-training-navigation__group"
-  >
-    <!--      todo: add opened/closed icon (> <)-->
-    <ng-container *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn">
-      <div (click)="selectChapter($event, menuSubItem,undefined)"
-           *ngIf="menuSubItem.type === 'SUB_ITEM'; else innerGroupHeader"
-           [routerLink]="!menuSubItem.disabled && menuSubItem.link"
-      >
-        <p [class._disabled]="menuSubItem.disabled"
-           class="dbt-training-navigation__group-elem"
-           routerLinkActive="_active">{{menuSubItem.title}}</p>
-        <p *ngIf="menuSubItem.subtitle"
-           class="dbt-training-navigation__group-elem-subtitle"
-        >{{menuSubItem.subtitle}}</p>
-      </div>
-      <ng-template #innerGroupHeader>
-        <h3 class="dbt-training-navigation__group-subtitle">{{menuSubItem.title}}</h3>
-      </ng-template>
-    </ng-container>
-  </div>
-  <ng-template #groupHeader>
-    <h2 class="dbt-training-navigation__subtitle">{{menuItem.title}}</h2>
-  </ng-template>
+    <div *ngIf="menuItem.type === 'ITEM'; else groupHeader"
+         class="dbt-training-navigation__nav"
+         routerLinkActive="_active"
+         [class._disabled]="menuItem.disabled"
+         [routerLink]="!menuItem.disabled && menuItem.link"
+         (click)="selectChapter($event, menuItem, index)"
+    >
+        <p class="dbt-training-navigation__nav-elem">{{menuItem.title}}</p>
+        <p *ngIf="menuItem.subtitle"
+           class="dbt-training-navigation__nav-elem-subtitle"
+        >{{menuItem.subtitle}}</p>
+    </div>
+    <div *ngIf="menuItem.children && menuItem.childrenVisible"
+         class="dbt-training-navigation__group"
+    >
+        <!--      todo: add opened/closed icon (> <)-->
+        <ng-container *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn">
+            <div *ngIf="menuSubItem.type === 'SUB_ITEM'; else innerGroupHeader"
+                 [routerLink]="!menuSubItem.disabled && menuSubItem.link"
+                 (click)="selectChapter($event, menuSubItem,undefined)"
+            >
+                <p class="dbt-training-navigation__group-elem"
+                   routerLinkActive="_active"
+                   [class._disabled]="menuSubItem.disabled"
+                >{{menuSubItem.title}}</p>
+                <p *ngIf="menuSubItem.subtitle"
+                   class="dbt-training-navigation__group-elem-subtitle"
+                >{{menuSubItem.subtitle}}</p>
+            </div>
+            <ng-template #innerGroupHeader>
+                <h3 class="dbt-training-navigation__group-subtitle">{{menuSubItem.title}}</h3>
+            </ng-template>
+        </ng-container>
+    </div>
+    <ng-template #groupHeader>
+        <h2 class="dbt-training-navigation__subtitle">{{menuItem.title}}</h2>
+    </ng-template>
 </ng-container>

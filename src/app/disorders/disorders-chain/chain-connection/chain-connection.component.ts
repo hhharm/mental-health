@@ -1,19 +1,19 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from "@angular/core";
 
 @Component({
-  selector: 'app-chain-connection',
-  templateUrl: './chain-connection.component.html',
-  styleUrls: ['./chain-connection.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-chain-connection",
+    templateUrl: "./chain-connection.component.html",
+    styleUrls: ["./chain-connection.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChainConnectionComponent implements OnInit {
 
-  @Input() arrow: boolean;
+    @Input() arrow: boolean;
 
-  constructor() {
-  }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

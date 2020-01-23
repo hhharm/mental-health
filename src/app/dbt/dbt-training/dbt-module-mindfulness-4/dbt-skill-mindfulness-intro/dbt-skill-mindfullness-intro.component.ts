@@ -1,16 +1,16 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 
 @Component({
-  selector: 'app-dbt-skill-mindfullness-intro',
-  templateUrl: './dbt-skill-mindfullness-intro.component.html',
-  styleUrls: ['./dbt-skill-mindfullness-intro.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-dbt-skill-mindfullness-intro",
+    templateUrl: "./dbt-skill-mindfullness-intro.component.html",
+    styleUrls: ["./dbt-skill-mindfullness-intro.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DbtSkillMindfullnessIntroComponent implements OnInit {
-  constructor() {
-  }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

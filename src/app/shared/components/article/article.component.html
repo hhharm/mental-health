@@ -1,0 +1,5 @@
+<h2 *ngIf="article.title">{{article.title}}</h2>
+
+<app-block *ngFor="let section of article.blocks; trackBy: trackByFn"
+           [block]="section"
+></app-block>

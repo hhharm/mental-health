@@ -1,25 +1,25 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {DbtCommunicationIntroComponent} from './dbt-communication-intro.component';
+import {DbtCommunicationIntroComponent} from "./dbt-communication-intro.component";
 
-describe('DbtCommunicationIntroComponent', () => {
-  let component: DbtCommunicationIntroComponent;
-  let fixture: ComponentFixture<DbtCommunicationIntroComponent>;
+describe("DbtCommunicationIntroComponent", () => {
+    let component: DbtCommunicationIntroComponent;
+    let fixture: ComponentFixture<DbtCommunicationIntroComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [DbtCommunicationIntroComponent]
-    })
-      .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [DbtCommunicationIntroComponent]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DbtCommunicationIntroComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(DbtCommunicationIntroComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it("should create", () => {
+        expect(component).toBeTruthy();
+    });
 });

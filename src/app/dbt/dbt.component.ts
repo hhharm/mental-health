@@ -1,17 +1,17 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 
 @Component({
-  selector: 'app-dbt',
-  templateUrl: './dbt.component.html',
-  styleUrls: ['./dbt.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-dbt",
+    templateUrl: "./dbt.component.html",
+    styleUrls: ["./dbt.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DbtComponent implements OnInit {
 
-  constructor() {
-  }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

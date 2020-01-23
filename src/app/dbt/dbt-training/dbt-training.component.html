@@ -1,12 +1,12 @@
 <app-dbt-training-navigation *ngIf="navVisible | async"
-                             [@widthInOutAnimation]
                              class="dbt-training__left"
+                             [@widthInOutAnimation]
 >
 </app-dbt-training-navigation>
 
-<div [class._fixed]="navVisible | async"
-     class="dbt-training__right"
+<div class="dbt-training__right"
+     [class._fixed]="navVisible | async"
 >
-  <router-outlet></router-outlet>
-  <!--  todo: add navigation buttons: next, to top and previous-->
+    <router-outlet></router-outlet>
+    <!--  todo: add navigation buttons: next, to top and previous-->
 </div>

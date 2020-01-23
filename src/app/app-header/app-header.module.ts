@@ -1,18 +1,17 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {AppHeaderComponent} from './app-header.component';
-import {RouterModule} from '@angular/router';
-
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {AppHeaderComponent} from "./app-header.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
-  declarations: [AppHeaderComponent],
-  exports: [
-    AppHeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+    declarations: [AppHeaderComponent],
+    exports: [
+        AppHeaderComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule
+    ]
 })
 export class AppHeaderModule {
 }

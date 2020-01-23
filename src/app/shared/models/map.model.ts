@@ -1,3 +1,3 @@
 export interface KeyMap<T> {
-  [key: string]: T;
+    [key: string]: T;
 }

@@ -1,10 +1,10 @@
 export interface DisorderInfo {
-  id: string;
-  label: string;
+    id: string;
+    label: string;
 //  translateLabel?
-  info: string;
-  group: DisableDisorderGroup;
+    info: string;
+    group: DisableDisorderGroup;
 }
 
 // just FYI: BPD = personality disorder
-export type DisableDisorderGroup = 'PSYCHO' | 'PD' | 'NEUROTIC' | 'HEALTHY';
+export type DisableDisorderGroup = "PSYCHO" | "PD" | "NEUROTIC" | "HEALTHY";

@@ -1,0 +1,16 @@
+<h3 *ngIf="block.title">{{block.title}}</h3>
+<ng-container *ngFor="let element of block.elements; trackBy: trackByFn"
+>
+    <ng-container [ngSwitch]="element.type">
+        <p *ngSwitchCase="'TEXT'"
+           [innerHTML]="element.content"
+        >
+        </p>
+        <h4 *ngSwitchCase="'TITLE'">{{element.content}}</h4>
+        <ul *ngSwitchCase="'UNORDERED_LIST'">
+            <li *ngFor="let listItem of element.content; trackBy: trackByFn"
+                [innerHTML]="listItem"
+            ></li>
+        </ul>
+    </ng-container>
+</ng-container>
