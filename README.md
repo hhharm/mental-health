@@ -1,2 +1,2 @@
 # mental-health
-Information about psyche
+Website with information about DBT training (Dialectical Behavior Therapy). RU, Angular
