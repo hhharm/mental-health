@@ -12,5 +12,10 @@
                 [innerHTML]="listItem"
             ></li>
         </ul>
+        <ol *ngSwitchCase="'ORDERED_LIST'">
+            <li *ngFor="let listItem of element.content; trackBy: trackByFn"
+                [innerHTML]="listItem"
+            ></li>
+        </ol>
     </ng-container>
 </ng-container>

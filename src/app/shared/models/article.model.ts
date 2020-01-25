@@ -12,7 +12,16 @@ export interface ArticleBlock {
 
 export interface ArticleElem {
     id: string;
-    type: "TEXT" | "ORDERED_LIST" | "UNORDERED_LIST" | "TITLE" | "LINK";
+    type: ArticleElemType;
     content?: string | string[];
 }
 
+export enum ArticleElemTypeEnum {
+    text = "TEXT",
+    olist = "ORDERED_LIST",
+    ulist = "UNORDERED_LIST",
+    title = "TITLE",
+    link = "LINK"
+}
+
+export type ArticleElemType = ArticleElemTypeEnum.text | ArticleElemTypeEnum.olist | ArticleElemTypeEnum.ulist | ArticleElemTypeEnum.title | ArticleElemTypeEnum.link;

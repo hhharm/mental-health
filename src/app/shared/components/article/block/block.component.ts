@@ -17,7 +17,6 @@ export class BlockComponent implements OnInit {
     ngOnInit() {
     }
 
-
     public trackByFn(index: number, item: ArticleBlock): string {
         return item.id;
     }

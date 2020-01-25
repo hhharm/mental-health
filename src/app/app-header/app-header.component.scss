@@ -3,14 +3,16 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  border-bottom: 1px solid #0884c3;
+  background-color: #03257A;
 }
 
 .app-header {
-  height: var(--header-height);
 
   &__content {
-    border-bottom: 1px solid #0884c3;
-    background-color: #03257A;
+    max-width: var(--max-page-width);
+    margin: 0 auto;
+    height: var(--header-height);
 
     &-item {
       font-variant: all-small-caps;

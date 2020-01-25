@@ -1,7 +1,7 @@
 import {BehaviorSubject, Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
-const MIN_WIDE_SCREEN_WIDTH = 700;
+const MIN_WIDE_SCREEN_WIDTH = 1000;
 
 @Injectable({
     providedIn: "root",

@@ -3,7 +3,9 @@
     <div *ngIf="menuItem.type === 'ITEM'; else groupHeader"
          class="dbt-training-navigation__nav"
          routerLinkActive="_active"
+         [class._closed]="menuItem.children && !menuItem.childrenVisible"
          [class._disabled]="menuItem.disabled"
+         [class._opened]="menuItem.children && menuItem.childrenVisible"
          [routerLink]="!menuItem.disabled && menuItem.link"
          (click)="selectChapter($event, menuItem, index)"
     >

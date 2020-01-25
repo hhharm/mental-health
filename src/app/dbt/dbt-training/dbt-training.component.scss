@@ -4,14 +4,14 @@
 
 .dbt-training {
   &__left {
-    width: 275px;
     display: inline-block;
     border-right: 1px solid rgba(8, 162, 235, 0.21);
-    box-shadow: 2px 1px 7px rgba(8, 162, 235, 0.21);
+    box-shadow: 4px 4px 7px rgba(8, 162, 235, 0.21);
     overflow-y: auto;
     overflow-x: hidden;
     flex-shrink: 0;
-    height: 100vh;
+    $footer-height: 35px;
+    height: calc(100vh - #{$footer-height});
     background-color: white;
   }
 
@@ -22,15 +22,14 @@
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   :host {
     display: block;
   }
 
   .dbt-training {
     &__left {
-      width: auto;
-      height: auto;
+      width: 100vw;
     }
 
     &__right._fixed {

@@ -1,12 +1,12 @@
 :host {
   position: sticky;
   top: var(--header-height);
+  --nav-width: 285px;
 }
 
 .dbt-training-navigation {
-
   &__subtitle {
-    min-width: 275px;
+    width: var(--nav-width);
     font-variant: all-petite-caps;
     text-align: center;
     margin: 0;
@@ -19,6 +19,13 @@
 
   &__nav {
     padding: 10px 20px 10px 10px;
+    width: var(--nav-width);
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dff3ff;
+    }
 
     &._disabled {
       color: lightgray;
@@ -32,15 +39,31 @@
       }
     }
 
-    cursor: pointer;
-
-    &:hover {
-      background-color: #dff3ff;
-    }
-
     &._active {
       color: blueviolet;
       background-color: #b6deff;
+    }
+
+    &._opened:after, &._closed:after {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+
+    }
+
+    &._opened:after {
+      border-width: 0 10px 12px 10px;
+      border-color: transparent transparent var(--link-color) transparent;
+
+    }
+
+    &._closed:after {
+      border-width: 10px 8px 0 10px;
+      border-color: var(--link-color) transparent transparent transparent;
     }
 
     &-toggle {
@@ -86,6 +109,7 @@
   &__group {
     background-color: white;
     padding-bottom: 5px;
+    width: var(--nav-width);
 
     &-subtitle {
       background-color: #f2f2f2;
@@ -124,5 +148,12 @@
         background-color: #ebf6ff;
       }
     }
+  }
+}
+
+
+@media (max-width: 1000px) {
+  :host {
+    --nav-width: auto;
   }
 }

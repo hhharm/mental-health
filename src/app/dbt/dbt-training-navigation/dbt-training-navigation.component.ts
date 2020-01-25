@@ -106,7 +106,6 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
                 type: "SUB_ITEM",
                 link: "/dbt/relationships/impair-factors",
                 title: "Что снижает эффективность",
-                disabled: true
             }
         ]
     };
@@ -179,7 +178,7 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
 
     selectChapter($event: MouseEvent, menuItem: MenuItem, index: number): void {
         const updatedModel = [...this.model];
-        if (menuItem && menuItem.type !== "SUB_ITEM") {
+        if (menuItem && (menuItem.type !== "SUB_ITEM" && !menuItem.children)) {
             updatedModel.forEach((item, index) => {
                 if (item.children) {
                     updatedModel[index] = {...updatedModel[index], childrenVisible: false};
@@ -190,7 +189,11 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
             window.scrollTo({top: 0, behavior: "smooth"});
             this.menuService.closeOnClickIfMobile();
         } else {
-            $event && $event.preventDefault();
+            if (!!$event) {
+                $event.stopImmediatePropagation();
+                $event.preventDefault();
+
+            }
             updatedModel[index] = {...updatedModel[index], childrenVisible: !this.model[index].childrenVisible};
         }
         this.model = updatedModel;
