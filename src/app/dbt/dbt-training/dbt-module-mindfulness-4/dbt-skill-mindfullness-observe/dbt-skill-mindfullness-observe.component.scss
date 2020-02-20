@@ -1,0 +1,22 @@
+.mindfulness__practise {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  & div {
+    width: 300px;
+    padding: 5px 15px;
+    border: 1px solid green;
+    flex-grow: 1;
+
+
+    & h5 {
+      margin: 0 auto;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: normal;
+      color: green;
+      text-align: center;
+    }
+  }
+
+}
