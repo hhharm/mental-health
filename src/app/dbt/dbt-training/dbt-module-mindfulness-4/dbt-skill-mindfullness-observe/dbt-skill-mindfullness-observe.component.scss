@@ -5,7 +5,13 @@
   & div {
     width: 300px;
     padding: 5px 15px;
-    border: 1px solid green;
+    $border-color: green;
+    box-shadow:
+    2px 0 0 0 $border-color,
+    0 2px 0 0 $border-color,
+    2px 2px 0 0 $border-color,   /* Just to fix the corner */
+    2px 0 0 0 $border-color inset,
+    0 2px 0 0 $border-color inset;
     flex-grow: 1;
 
 

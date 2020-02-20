@@ -6,7 +6,6 @@
          [class._closed]="menuItem.children && !menuItem.childrenVisible"
          [class._disabled]="menuItem.disabled"
          [class._opened]="menuItem.children && menuItem.childrenVisible"
-         [routerLink]="!menuItem.disabled && menuItem.link"
          (click)="selectChapter($event, menuItem, index)"
     >
         <p class="dbt-training-navigation__nav-elem">{{menuItem.title}}</p>
