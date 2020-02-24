@@ -118,7 +118,6 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
         type: 'SUB_ITEM',
         link: '/dbt/relationships/dear-man',
         title: 'Достижение целей',
-        disabled: true
       },
       {
         id: 'relationships4',

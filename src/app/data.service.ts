@@ -33,11 +33,72 @@ export class DataService {
         return of(communicationImpair);
       case moduleUrls.talk_validate:
         return of(communicationValidate);
+
+      case moduleUrls.talk_objectives:
+        return of(communicationObjective);
+      case moduleUrls.talk_relationships:
+        return of(communicationRelationships);
+      case moduleUrls.talk_self_respect:
+        return of(communicationSelfRespect);
       default:
         return of(undefined);
     }
   }
 }
+
+const communicationObjective: Article = {
+  id: 'communicationObjective',
+  title: 'Как отстаивать свои цели',
+  blocks: [
+    {
+      id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',
+      title: '',
+      elements: [{
+        id: 'reach',
+        type: ArticleElemTypeEnum.text,
+        content: 'Когда в приоретете достижение наших целей (будь то просьба или отказ), стоит придерживаться правилам:'
+      }, {
+        id: 'dearman',
+        type: ArticleElemTypeEnum.ulist,
+        content: [
+          '<p>П - проговорить факты. Описать ситуацию безоценочно.</p><p>Пример: "Дорогой, в последний месяц только я занимаюсь делами по дому: готовлю, стираю, убираю, глажу, выношу мусор."</p>',
+          '<p>Р - рассказать о своих чувствах.</p><p>Пример: "Я чувствую усталость, грусть, злость и непонимание."</p>',
+          '<p>О - описать свою точку зрения. <strong>Чётко сформулировать просьбу! (Или отказ)</strong> Скажите, что, собственно, вы хотите от человека =)</p><p>Пример: "Пожалуйста, возьми на себя часть обязанностей. Начни выносить мусор каждый вечер, когда возвращаешься домой, и стирай вещи каждую субботу."</p>',
+          '<p>С - сообщить о негативных и/или позитивных последствиях. В чём выгода для человека в исполнении просьбы (или отказа)?</p><p>Пример: "Если ты начнёшь это делать, мы сможем больше времени проводить вместе.</p>',
+          '<p>И - игнорировать отклонения от темы. Использовать "заезженную пластинку" - повторять свою позицию, когда собеседник пытается как-то отвлечь. Столько раз, сколько это понадобится. Отбросить ложную скромность и проявить упрямство. <i>Предполагается, что просьба/отказ продуман и эта вещь действительно крайне важна для вас.</i> <strong>Настаивать на своём!</strong></p><p></p>',
+          '<p>Т - твёрдость и уверенность. Нужно держаться твёрдо. Это касается тона голоса, позы тела.</p><p></p>',
+          '<p>А - активно торговаться. Узнавайте мнение оппонента. Какие он видит решения? Возможно у него есть действительно разумные предложения. Возможно есть другой способ получить желаемое? Торгуйтесь!</p>' +
+          '<p>Пример: "Почему нет? Расскажи, как ты видишь ситуацию? Может быть у тебя есть другие предложения? А если...?</p>',
+          '<p>К - "когда собеседник силён...". Общение - это обоюдный процесс. Иногда собеседник не расположен к нам и никакими способами не получится добиться желаемого даже у самого опытного переговорщика. Если вы чувствуете, что разговор зашёл в тупик и собеседник вас не слышит:<ul>' +
+          '<li>Опишите вашу коммуникацию: "Мы разговариваем, но ты уже три раза проигнорировал(а) мою просьбу/отказ"</li>' +
+          '<li>Опишите ваши чувства по поводу разговора: "Мне это очень неприятно"</li>' +
+          '<li>Выскажите ассертивную угрозу. Если собеседник продолжит весьти себя также, осуществите её: "Если так продолжится, я прерву наше общение"</li>' +
+          '</ul></p>'
+        ]
+      }, {
+        id: 'howto',
+        type: ArticleElemTypeEnum.text,
+        content: 'Этот навык стоит применять разумно, лишь тогда, когда он действительно нужен. Часто не требуется использовать все пункты.' +
+          ' Порой достаточно чётко сформулировать просьбу. Многие люди охотно идут навстречу.'
+      }, {
+        id: 'practise',
+        type: ArticleElemTypeEnum.text,
+        content: 'Самый лучший способ изучить этот навык - это применять его! Причём легче всего начать практику в безопасной обстановке на тренинге, ' +
+          'разыгрывая "ролевые сценки". Это некомфортно, абсолютно для всех, и это нормально. Но оно того стоит! И чем больше вы будете практиковаться, тем проще будет становиться.'
+      },]
+    }
+  ]
+};
+const communicationRelationships: Article = {
+  id: 'communicationRelationships',
+  title: 'Как сохранять или налаживать хорошие взаимоотношения',
+  blocks: []
+};
+const communicationSelfRespect: Article = {
+  id: 'communicationSelfRespect',
+  title: 'Как сохранять или создавать самоуважение',
+  blocks: []
+};
 
 const communicationValidate: Article = {
   id: 'communicationValidate',
@@ -45,7 +106,22 @@ const communicationValidate: Article = {
   blocks: [
     {
       id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',
-      title: 'Понимаем ли мы наше взаимодействие с другими людьми?',
+      title: 'Формулы направляющего самоободрения',
+      elements: [{
+        id: '2526810c-3c3d-4bb4-aa6d-9b7ad00a81fa8',
+        type: ArticleElemTypeEnum.text,
+        content: 'Есть ряд фраз, которые могут помочь правильно настроиться на общение. Мы "раскачиваем себя" с их помощью. Их можно разделить на три группы:'
+      }, {
+        id: '2526810c-3c3a-4bb4-aa6d-9b7ad00a81a9',
+        type: ArticleElemTypeEnum.ulist,
+        content: ['формулы, придающие смелости для совершения действия',
+          'формулы, фокусирующие на эффективности',
+          'опровержения мифов о межличностной коммуникации']
+      }]
+    },
+    {
+      id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',
+      title: 'Мифы о межличностной коммуникации',
       elements: [{
         id: '2526810c-3c3d-4bb4-aa6d-9b7ad00a81a7',
         type: ArticleElemTypeEnum.text,
@@ -141,54 +217,11 @@ const communicationIntro: Article = {
 <a href="https://docs.google.com/document/d/14o6ZEsG9zGnJ091I1IHoPKClcg_kN0-6KzMQJtrCcVo/edit?usp=sharing"
    target="_blank"
 >Домашние карточки для заполнения</a>
-<!--Myths about Interpersonal Effectiveness-->
 <!--Cheerleading Statements for Interpersonal Effectiveness-->
 <!--Options for Determining Intensity of the Situation-->
 <!--Situations for Interpersonal Effectiveness-->
 <h3>Разбиение модуля по занятиям</h3>
 
-<p>В "синей" книге материал модуля разбит на логические части:</p>
-<ul>
-    <li>обзор межличностных навыков (Interpersonal Effectiveness Overview);</li>
-    <li>факторы, способствующие либо препятствующение эффективности в отношениях; (Factors Reducing Interpersonal
-        Effectiveness)
-    </li>
-    <li>факторы, которые нужно рассмотреть при принятии решания попросить, отказать или выразить своё мнение;</li>
-    <li>конкретные навыки:
-        <ul>
-            <li>
-                направляющее самоободрение
-            </li>
-            <li>получение желаемого (Using Objectiveness Effectiveness: (Dear Man))
-                <ul>
-                    <li> D Describe</li>
-                    <li> E Express</li>
-                    <li> A Assert</li>
-                    <li> R Reinforce</li>
-                    <li> M Mindful</li>
-                    <li> A Appear Confident</li>
-                    <li> N Negotiate</li>
-                </ul>
-            </li>
-            <li>поддержание отношений (Using Relationship Effectiveness: (Give))
-                <ul>
-                    <li>G Gentle</li>
-                    <li>I Interested</li>
-                    <li>V Validate</li>
-                    <li>E Easy Manner</li>
-                </ul>
-            </li>
-            <li>сохранение самоуважения (Self-respect effectiveness: (Fast))
-                <ul>
-                    <li>F Fair</li>
-                    <li>A Apologies (no Apologies)</li>
-                    <li>S Stick to value</li>
-                    <li>T Truthful</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
 <h4>Примерно материал можно разбить на занятия так:</h4>
 <ol>
     <li>Введение.
@@ -201,6 +234,7 @@ const communicationIntro: Article = {
             </li>
             <li>Ситуации, где навыки применимы.</li>
             <li>Обзор целей, которые могут быть во взаимодействии с другими</li>
+            <p><strong>ДЗ: сформулировать для себя цели на модуль</strong></p>
         </ul>
     </li>
     <li>

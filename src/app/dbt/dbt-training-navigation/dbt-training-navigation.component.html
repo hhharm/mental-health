@@ -16,7 +16,6 @@
     <div *ngIf="menuItem.children && menuItem.childrenVisible"
          class="dbt-training-navigation__group"
     >
-        <!--      todo: add opened/closed icon (> <)-->
         <ng-container *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn">
             <div *ngIf="menuSubItem.type === 'SUB_ITEM'; else innerGroupHeader"
                  [routerLink]="!menuSubItem.disabled && menuSubItem.link"
