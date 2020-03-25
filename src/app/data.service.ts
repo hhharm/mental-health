@@ -14,7 +14,8 @@ export const moduleUrls: Params = {
   talk_validate: 'validate',
   talk_objectives: 'dear-man',
   talk_relationships: 'give',
-  talk_self_respect: 'fast'
+  talk_self_respect: 'fast',
+  emotions_plan: "plan"
 };
 
 @Injectable({
@@ -33,22 +34,64 @@ export class DataService {
         return of(communicationImpair);
       case moduleUrls.talk_validate:
         return of(communicationValidate);
-
       case moduleUrls.talk_objectives:
         return of(communicationObjective);
       case moduleUrls.talk_relationships:
         return of(communicationRelationships);
       case moduleUrls.talk_self_respect:
         return of(communicationSelfRespect);
+      case moduleUrls.emotions_plan:
+        return of(emotionsPlan);
       default:
         return of(undefined);
     }
   }
 }
 
+const emotionsPlan: Article = {
+  id: 'emotionsPlan',
+  title: 'План занятий по эмоциональной регуляции',
+  urlPrevious: moduleUrls.talk_self_respect,
+  urlNext: undefined,
+  blocks: [
+    {
+      id: 'emotionsPlanTitle',
+      title: '',
+      elements: [{
+        id: 'reach',
+        type: ArticleElemTypeEnum.text,
+        content: 'На какие занятия разбить модуль и что отрабатывать самостоятельно:'
+      }, {
+        id: 'emotionsPlanList',
+        type: ArticleElemTypeEnum.olist,
+        content: [
+          '<p>Изучение теории: связь ПРЛ и сложностей с эмоциональной регуляцией. Обсуждение. Формулирование целей модуля. (стр. 189-193, 266)</p>' +
+          '<em>Домашнее задание: поставить для себя цели на модуль</em>',
+          '<p>Изучение теории: роль эмоций, их подвиды. Разбор и опровержение мифов об эмоциях. (стр. 194-195, 267-268) </p>' +
+          '<em>Домашнее задание: написать для себя опровержение всем мифам, вспомнить свои мифы</em>',
+          '<p>Разбор таблицы для наблюдения за эмоциями. (стр. 195-200)</p>' +
+          '<em>Домашнее задание: наблюдать за эмоциями, вести таблицу (с.300-301)</em>',
+          '<p>Изучение теории: последствия и способы описания. Ролевая игра (у участников должна быть видеосвязь). Факторы, мешающие наблюдать и описывать эмоции. Роль эмоций. (стр. 200-205, 288-289)</p>' +
+          '<em>Домашнее задание: самостоятельно изучить базовые эмоции (с. 270-287). Продолжать вести дневник (с. 302)</em>',
+          '<p>Изучение теории: методы снижения эмоциональной уязвимости. (с. 205-207, 290))</p>' +
+          '<em>Домашнее задание: внедрять эти методы в жизнь. Вести дневник (стр. 303-304)</em>',
+          '<p>Изучение теории: меры по увеличению численности и усилению положительных эмоций. (с. 207-210, 291-296)</p>' +
+          '<em>Домашнее задание: внедрять эти методы в жизнь. Вести дневник (стр. 303-304)</em>',
+          '<p>Изучение теории: избавление от страданий (с 209-211, 297).</p>' +
+          '<em>Домашнее задание: внедрять эти методы в жизнь. Вести дневник (стр. 303-304)</em>',
+          '<p>Изучение теории: использование действий противоположной направленности (с. 211-213, 288-289)</p>' +
+          '<em>Домашнее задание: внедрять эти методы в жизнь. Вести дневник (стр. 303-304)</em>',
+          '<p>Подведение итогов: что получилось, что нет, достигли ли целей, какие методы больше всего запомнились, etc. Краткий обзор всего модуля.</p>'
+        ]
+      }]
+    }
+  ]
+};
 const communicationObjective: Article = {
   id: 'communicationObjective',
   title: 'Как отстаивать свои цели',
+  urlPrevious: moduleUrls.talk_validate,
+  urlNext: moduleUrls.talk_self_respect,
   blocks: [
     {
       id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',

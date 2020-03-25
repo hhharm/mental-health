@@ -135,6 +135,21 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
       }
     ]
   };
+  private readonly emotionsMenuItems: MenuItem = {
+    id: '6',
+    type: 'ITEM',
+    link: '/dbt/emotions',
+    title: 'Навыки эмоциональной регуляции',
+    childrenVisible: false,
+    children: [
+      {
+        id: 'emotions-plan',
+        type: 'SUB_ITEM',
+        title: 'Введение',
+        link: '/dbt/emotions/plan',
+      }
+    ]
+  };
   public model: MenuItem[] = [
     {
       id: 'h0',
@@ -170,12 +185,7 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
     },
     this.mindfulnessMenuItems,
     this.relationshipsMenuItems,
-    {
-      id: '6',
-      type: 'ITEM',
-      title: 'Навыки эмоциональной регуляции',
-      disabled: true
-    },
+    this.emotionsMenuItems,
     {
       id: '7',
       type: 'ITEM',

@@ -1,7 +1,10 @@
 <ng-container *ngIf="article || ((article$ | async)) as _article">
-    <h2 *ngIf="_article.title">{{_article.title}}</h2>
+  <h2 *ngIf="_article.title">{{_article.title}}</h2>
 
-    <app-block *ngFor="let section of _article.blocks; trackBy: trackByFn"
-               [block]="section"
-    ></app-block>
+  <app-block *ngFor="let section of _article.blocks; trackBy: trackByFn"
+             [block]="section"
+  ></app-block>
+  <app-article-footer [next]="_article.urlNext"
+                      [previous]="_article.urlPrevious"
+  ></app-article-footer>
 </ng-container>

@@ -21,6 +21,7 @@ export const dbtTrainingRoutes: Routes = [
     {path: moduleUrls.process, component: DbtTrainingOrgmomentsComponent},
     {path: moduleUrls.mindfulness, component: DbtSkillMindfulnessComponent, children: dbtMindfulnessTrainingRoutes},
     {path: "relationships/:module", component: ArticleComponent},
+    {path: "emotions/:module", component: ArticleComponent},
     {
         path: "**",
         redirectTo: moduleUrls.about

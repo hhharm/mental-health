@@ -2,6 +2,8 @@ export interface Article {
     id: string;
     title?: string;
     blocks: ArticleBlock[];
+    urlNext?: string;
+    urlPrevious?: string;
 }
 
 export interface ArticleBlock {
