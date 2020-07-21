@@ -37,7 +37,7 @@ const appRoutes: Routes = [
         BrowserModule,
         DisordersModule,
         DbtModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
         AppHeaderModule,
         BrowserAnimationsModule
     ],

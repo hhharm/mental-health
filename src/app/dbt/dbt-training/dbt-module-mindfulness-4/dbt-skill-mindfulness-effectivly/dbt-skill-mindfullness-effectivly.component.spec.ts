@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
 import {DbtSkillMindfullnessEffectivlyComponent} from "./dbt-skill-mindfullness-effectivly.component";
 
@@ -6,7 +6,7 @@ describe("DbtSkillMidfulnessDescribeComponent", () => {
     let component: DbtSkillMindfullnessEffectivlyComponent;
     let fixture: ComponentFixture<DbtSkillMindfullnessEffectivlyComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [DbtSkillMindfullnessEffectivlyComponent]
         })

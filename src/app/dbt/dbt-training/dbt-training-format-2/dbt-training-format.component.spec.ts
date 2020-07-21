@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
 import {DbtTrainingFormatComponent} from "./dbt-training-format.component";
 
@@ -6,7 +6,7 @@ describe("DbtTrainingFormatComponent", () => {
     let component: DbtTrainingFormatComponent;
     let fixture: ComponentFixture<DbtTrainingFormatComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [DbtTrainingFormatComponent]
         })
