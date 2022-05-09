@@ -1,23 +1,21 @@
 :host {
   display: flex;
 }
-
+.app-sidenav-hamburger {
+  transition: all 0.2s ease-out;
+}
 .dbt-training {
   &__left {
     display: inline-block;
-    border-right: 1px solid rgba(8, 162, 235, 0.21);
-    box-shadow: 4px 4px 7px rgba(8, 162, 235, 0.21);
     overflow-y: auto;
     overflow-x: hidden;
     flex-shrink: 0;
-    $footer-height: 35px;
-    height: calc(100vh - #{$footer-height});
-    background-color: white;
+    background-color: #d1f2f7;
   }
 
   &__right {
     display: inline-block;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 10px 60px;
   }
 
 }

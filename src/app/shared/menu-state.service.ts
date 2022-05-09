@@ -1,15 +1,18 @@
-import {BehaviorSubject, Observable} from "rxjs";
-import {Injectable} from "@angular/core";
+import {BehaviorSubject, Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
 
 const MIN_WIDE_SCREEN_WIDTH = 1000;
 
 @Injectable({
-    providedIn: "root",
+    providedIn: 'root',
 })
 export class MenuStateService {
-    private readonly menuSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+    private readonly menuSubject$: BehaviorSubject<boolean> = new BehaviorSubject<
+        boolean
+    >(true);
     private menuOpened = true;
     private windowSize;
+    public drawer?: any;
 
     public setWindowSize(width) {
         if (!this.windowSize && width < MIN_WIDE_SCREEN_WIDTH) {
@@ -32,6 +35,7 @@ export class MenuStateService {
         if (this.windowSize < MIN_WIDE_SCREEN_WIDTH) {
             this.menuOpened = false;
             this.menuSubject$.next(false);
+            this.drawer?.toggle();
         }
     }
 }

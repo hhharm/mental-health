@@ -1,40 +1,59 @@
-<!--      todo: add router animation-->
+<button
+    class="app-sidenav-hamburger"
+    mat-icon-button
+    color="primary"
+    aria-label="close menu button"
+    (click)="drawer.toggle()"
+>
+    <mat-icon>close</mat-icon>
+</button>
 <ng-container *ngFor="let menuItem of model; index as index; trackBy: trackByFn">
-    <div *ngIf="menuItem.type === 'ITEM'; else groupHeader"
-         class="dbt-training-navigation__nav"
-         routerLinkActive="_active"
-         [class._closed]="menuItem.children && !menuItem.childrenVisible"
-         [class._disabled]="menuItem.disabled"
-         [class._opened]="menuItem.children && menuItem.childrenVisible"
-         (click)="selectChapter($event, menuItem, index)"
-    >
-        <p class="dbt-training-navigation__nav-elem">{{menuItem.title}}</p>
-        <p *ngIf="menuItem.subtitle"
-           class="dbt-training-navigation__nav-elem-subtitle"
-        >{{menuItem.subtitle}}</p>
-    </div>
-    <div *ngIf="menuItem.children && menuItem.childrenVisible"
-         class="dbt-training-navigation__group"
-    >
-        <ng-container *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn">
-            <div *ngIf="menuSubItem.type === 'SUB_ITEM'; else innerGroupHeader"
-                 [routerLink]="!menuSubItem.disabled && menuSubItem.link"
-                 (click)="selectChapter($event, menuSubItem,undefined)"
+    <div class="expansion-button">
+        <mat-accordion>
+            <mat-expansion-panel
+                [disabled]="menuItem.disabled"
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+                (click)="selectChapter($event, menuItem, index)"
             >
-                <p class="dbt-training-navigation__group-elem"
-                   routerLinkActive="_active"
-                   [class._disabled]="menuSubItem.disabled"
-                >{{menuSubItem.title}}</p>
-                <p *ngIf="menuSubItem.subtitle"
-                   class="dbt-training-navigation__group-elem-subtitle"
-                >{{menuSubItem.subtitle}}</p>
-            </div>
-            <ng-template #innerGroupHeader>
-                <h3 class="dbt-training-navigation__group-subtitle">{{menuSubItem.title}}</h3>
-            </ng-template>
-        </ng-container>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ menuItem.title }}
+                    </mat-panel-title>
+                    <mat-panel-description *ngIf="menuItem.subtitle">
+                        {{ menuItem.subtitle }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-container
+                    *ngFor="let menuSubItem of menuItem.children; trackBy: trackByFn"
+                >
+                    <div
+                        *ngIf="menuSubItem.type === 'SUB_ITEM'; else innerGroupHeader"
+                        [routerLink]="!menuSubItem.disabled && menuSubItem.link"
+                        (click)="selectChapter($event, menuSubItem, undefined)"
+                    >
+                        <p
+                            class="dbt-training-navigation__group-elem"
+                            routerLinkActive="_active"
+                            [class._disabled]="menuSubItem.disabled"
+                        >
+                            {{ menuSubItem.title }}
+                        </p>
+                        <p
+                            *ngIf="menuSubItem.subtitle"
+                            class="dbt-training-navigation__group-elem-subtitle"
+                        >
+                            {{ menuSubItem.subtitle }}
+                        </p>
+                    </div>
+                    <ng-template #innerGroupHeader>
+                        <h3 class="dbt-training-navigation__group-subtitle">
+                            {{ menuSubItem.title }}
+                        </h3>
+                    </ng-template>
+                </ng-container>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
-    <ng-template #groupHeader>
-        <h2 class="dbt-training-navigation__subtitle">{{menuItem.title}}</h2>
-    </ng-template>
 </ng-container>

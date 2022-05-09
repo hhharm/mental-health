@@ -1,12 +1,19 @@
 :host {
   position: sticky;
-  top: var(--header-height);
-  --nav-width: 285px;
+  top: 0;
+  max-width: var(--nav-width);
 }
-
+.app-sidenav-hamburger {
+  float: right;
+  & + .expansion-button {
+    margin-top: 45px;
+  }
+}
+.expansion-button {
+  margin: 10px 10px 10px 0;
+}
 .dbt-training-navigation {
   &__subtitle {
-    width: var(--nav-width);
     font-variant: all-petite-caps;
     text-align: center;
     margin: 0;

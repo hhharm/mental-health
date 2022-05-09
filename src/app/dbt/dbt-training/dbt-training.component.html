@@ -1,12 +1,25 @@
-<app-dbt-training-navigation *ngIf="navVisible | async"
-                             class="dbt-training__left"
-                             [@widthInOutAnimation]
+<button
+    class="app-sidenav-hamburger"
+    mat-icon-button
+    color="primary"
+    aria-label="open menu button"
+    (click)="drawer.toggle()"
+    *ngIf="!drawer.opened"
 >
-</app-dbt-training-navigation>
+    <mat-icon>menu</mat-icon>
+</button>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" [opened]="true">
+        <app-dbt-training-navigation
+            class="dbt-training__left"
+            position="start"
+            [drawer]="drawer"
+        >
+        </app-dbt-training-navigation>
+    </mat-drawer>
 
-<div class="dbt-training__right"
-     [class._fixed]="navVisible | async"
->
-    <router-outlet></router-outlet>
-    <!--  todo: add navigation buttons: next, to top and previous-->
-</div>
+    <div class="dbt-training__right" [class._fixed]="navVisible | async">
+        <router-outlet></router-outlet>
+        <!--  todo: add navigation buttons: next, to top and previous-->
+    </div>
+</mat-drawer-container>

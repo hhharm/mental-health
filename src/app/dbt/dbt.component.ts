@@ -1,17 +1,12 @@
-import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {MenuStateService} from '../shared/menu-state.service';
 
 @Component({
-    selector: "app-dbt",
-    templateUrl: "./dbt.component.html",
-    styleUrls: ["./dbt.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-dbt',
+    templateUrl: './dbt.component.html',
+    styleUrls: ['./dbt.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DbtComponent implements OnInit {
-
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
-
+export class DbtComponent {
+    constructor(public menuService: MenuStateService) {}
 }
