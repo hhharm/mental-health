@@ -8,6 +8,7 @@ import {RouterModule} from "@angular/router";
 import {DbtTrainingNavigationComponent} from "../dbt-training-navigation/dbt-training-navigation.component";
 import {DbtSkillMindfulnessModule} from "./dbt-module-mindfulness-4/dbt-skill-mindfullness.module";
 import {SharedModule} from "../../shared/components/shared.module";
+import { MaterialModule } from "src/app/shared/material/material.module";
 
 @NgModule({
     declarations: [DbtTrainingComponent,
@@ -23,6 +24,7 @@ import {SharedModule} from "../../shared/components/shared.module";
         DbtSkillMindfulnessModule,
         CommonModule,
         RouterModule,
+        MaterialModule,
         SharedModule
     ]
 })

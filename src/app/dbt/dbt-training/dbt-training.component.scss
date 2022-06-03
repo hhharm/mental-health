@@ -1,5 +1,10 @@
+@import './src/assets/styles/styles.scss';
+
 :host {
+  height: 100%;
   display: flex;
+  
+  @include page-content;
 }
 .app-sidenav-hamburger {
   transition: all 0.2s ease-out;

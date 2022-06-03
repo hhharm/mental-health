@@ -11,9 +11,10 @@
   color: blueviolet;
 }
 
-.page-content {
+@mixin page-content {
   //75px is footer + header
   min-height: calc(100vh - 75px);
+  padding-right: 25px;
 }
 
 body {
@@ -42,9 +43,41 @@ body {
 
 ._titlable {
   text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #52f3ff;
   -moz-text-decoration-style: dashed;
   -moz-text-decoration-color: #52f3ff;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.exercise {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &-card {
+    width: 300px;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    $border-color: green;
+    box-shadow:
+    2px 0 0 0 $border-color,
+    0 2px 0 0 $border-color,
+    2px 2px 0 0 $border-color,   /* Just to fix the corner */
+    2px 0 0 0 $border-color inset,
+    0 2px 0 0 $border-color inset;
+    flex-grow: 1;
+
+    &__title {
+      margin: 0 auto;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: normal;
+      color: green;
+      text-align: center;
+    }
+  }
+}

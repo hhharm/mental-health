@@ -88,14 +88,12 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
                 type: 'SUB_ITEM',
                 link: '/dbt/mindfulness/describe',
                 title: 'Описание',
-                disabled: true,
             },
             {
                 id: 'mind4',
                 type: 'SUB_ITEM',
                 link: '/dbt/mindfulness/participate',
                 title: 'Участие',
-                disabled: true,
             },
             {
                 id: 'mind5',
@@ -107,21 +105,18 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
                 type: 'SUB_ITEM',
                 link: '/dbt/mindfulness/noncritical',
                 title: 'Без оценки',
-                disabled: true,
             },
             {
                 id: 'mind7',
                 type: 'SUB_ITEM',
                 link: '/dbt/mindfulness/onemindly',
                 title: 'Делая что-то одно',
-                disabled: true,
             },
             {
                 id: 'mind8',
                 type: 'SUB_ITEM',
                 link: '/dbt/mindfulness/effectively',
                 title: 'Эффективно',
-                disabled: true,
             },
         ],
     };
