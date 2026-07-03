@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mental-health:build"
+            "buildTarget": "mental-health:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mental-health:build:production"
+              "buildTarget": "mental-health:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mental-health:build"
+            "buildTarget": "mental-health:build"
           }
         },
         "test": {
