@@ -5,6 +5,7 @@ import {ArticleBlock} from '../../../../models/article.model';
     selector: 'app-block',
     templateUrl: './block.component.html',
     styleUrls: ['./block.component.scss'],
+    standalone: false
 })
 export class BlockComponent implements OnInit {
     @Input()

@@ -16,6 +16,7 @@ import {DataService} from '../../../data.service';
     templateUrl: './article.component.html',
     styleUrls: ['./article.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ArticleComponent implements OnInit, OnDestroy {
     @Input()

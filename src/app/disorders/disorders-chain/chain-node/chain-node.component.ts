@@ -5,7 +5,8 @@ import {DisorderInfo} from "../../models/disorder-info.model";
     selector: "app-chain-node",
     templateUrl: "./chain-node.component.html",
     styleUrls: ["./chain-node.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ChainNodeComponent implements OnInit {
 

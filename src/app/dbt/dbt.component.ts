@@ -6,6 +6,7 @@ import {MenuStateService} from '../shared/menu-state.service';
     templateUrl: './dbt.component.html',
     styleUrls: ['./dbt.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DbtComponent {
     constructor(public menuService: MenuStateService) {}

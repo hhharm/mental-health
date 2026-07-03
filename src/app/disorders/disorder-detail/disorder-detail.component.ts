@@ -4,7 +4,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
     selector: "app-disorder-detail",
     templateUrl: "./disorder-detail.component.html",
     styleUrls: ["./disorder-detail.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DisorderDetailComponent implements OnInit {
 

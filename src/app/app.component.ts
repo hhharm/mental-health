@@ -5,7 +5,8 @@ import {MenuStateService} from "./shared/menu-state.service";
     selector: "app-root",
     templateUrl: "./app.component.html",
     styleUrls: ["./app.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AppComponent implements OnInit {
     title = "mental-health";

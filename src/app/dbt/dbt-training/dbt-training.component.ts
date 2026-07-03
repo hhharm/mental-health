@@ -18,15 +18,16 @@ import {animate, style, transition, trigger} from '@angular/animations';
     animations: [
         trigger('widthInOutAnimation', [
             transition(':enter', [
-                style({height: 0, opacity: 0}),
-                animate('0.3s ease-out', style({height: '100%', opacity: 1})),
+                style({ height: 0, opacity: 0 }),
+                animate('0.3s ease-out', style({ height: '100%', opacity: 1 })),
             ]),
             transition(':leave', [
-                style({height: '100%', opacity: 1}),
-                animate('0.3s ease-in', style({height: 0, opacity: 0})),
+                style({ height: '100%', opacity: 1 }),
+                animate('0.3s ease-in', style({ height: 0, opacity: 0 })),
             ]),
         ]),
     ],
+    standalone: false
 })
 export class DbtTrainingComponent implements OnInit {
     @HostBinding('class.dbt-training') class = true;

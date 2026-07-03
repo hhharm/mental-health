@@ -4,7 +4,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
     selector: "app-dbt-skill-mindfullness-participate",
     templateUrl: "./dbt-skill-mindfullness-participate.component.html",
     styleUrls: ["./dbt-skill-mindfullness-participate.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DbtSkillMindfullnessParticipateComponent implements OnInit {
     // TODO: create separate module for Mindfullness skills

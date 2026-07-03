@@ -4,7 +4,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
     selector: "app-dbt-training-orgmoments",
     templateUrl: "./dbt-training-orgmoments.component.html",
     styleUrls: ["./dbt-training-orgmoments.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DbtTrainingOrgmomentsComponent implements OnInit {
 

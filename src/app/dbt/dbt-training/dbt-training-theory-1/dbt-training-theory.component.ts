@@ -6,6 +6,7 @@ import {Article, ArticleElemTypeEnum} from '../../../models/article.model';
     templateUrl: './dbt-training-theory.component.html',
     styleUrls: ['./dbt-training-theory.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DbtTrainingTheoryComponent implements OnInit {
     public readonly _articleModel: Article = {

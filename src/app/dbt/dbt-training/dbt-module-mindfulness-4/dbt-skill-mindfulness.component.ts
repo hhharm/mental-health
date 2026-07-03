@@ -4,7 +4,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
     selector: "app-dbt-skill-mindfulness",
     templateUrl: "./dbt-skill-mindfulness.component.html",
     styleUrls: ["./dbt-skill-mindfulness.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DbtSkillMindfulnessComponent implements OnInit {
     // TODO: move this to something different

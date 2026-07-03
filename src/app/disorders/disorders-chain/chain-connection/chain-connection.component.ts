@@ -4,7 +4,8 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from "@angular/core";
     selector: "app-chain-connection",
     templateUrl: "./chain-connection.component.html",
     styleUrls: ["./chain-connection.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ChainConnectionComponent implements OnInit {
 

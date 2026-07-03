@@ -6,6 +6,7 @@ import {MenuStateService} from '../shared/menu-state.service';
     templateUrl: './app-header.component.html',
     styleUrls: ['./app-header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AppHeaderComponent implements OnInit {
     ngOnInit() {}

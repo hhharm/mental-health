@@ -7,6 +7,7 @@ import {KeyMap} from '../../models/map.model';
     templateUrl: './disorders-chain.component.html',
     styleUrls: ['./disorders-chain.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DisordersChainComponent implements OnInit {
     @HostBinding('class.disorders-chain') hostClass = true;

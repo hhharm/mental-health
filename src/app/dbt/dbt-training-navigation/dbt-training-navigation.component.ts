@@ -25,6 +25,7 @@ const URL_TO_INDEX = {
     templateUrl: './dbt-training-navigation.component.html',
     styleUrls: ['./dbt-training-navigation.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
     @HostBinding('class.dbt-training-navigation')
