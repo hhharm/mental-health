@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-An Angular 14 website presenting mental-health educational content (DBT — Dialectical Behavior
+An Angular 21 website presenting mental-health educational content (DBT — Dialectical Behavior
 Therapy — training and psychological disorders info) in Russian. All copy/content lives inline in
 TypeScript as data, not in a CMS or backend — there is no server, this is a static Angular app
 deployed to GitHub Pages.
@@ -18,7 +18,6 @@ deployed to GitHub Pages.
 - `npm test` — run Karma/Jasmine unit tests (`ng test`)
   - Run a single spec: `ng test --include='**/chain-node.component.spec.ts'`
 - `npm run lint` — TSLint (`ng lint`)
-- `npm run e2e` — Protractor e2e tests
 
 ## Architecture
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
-import {AppDbtBottomComponent} from "./app-footer.component";
+import {AppFooterComponent} from "./app-footer.component";
 
-describe("AppDbtBottomComponent", () => {
-    let component: AppDbtBottomComponent;
-    let fixture: ComponentFixture<AppDbtBottomComponent>;
+describe("AppFooterComponent", () => {
+    let component: AppFooterComponent;
+    let fixture: ComponentFixture<AppFooterComponent>;
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [AppDbtBottomComponent]
+            declarations: [AppFooterComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(AppDbtBottomComponent);
+        fixture = TestBed.createComponent(AppFooterComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
