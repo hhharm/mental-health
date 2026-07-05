@@ -8,7 +8,6 @@ import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
     standalone: false
 })
 export class DbtSkillMindfullnessNonjudgmentalyComponent implements OnInit {
-    // TODO: create separate module for Mindfullness skills
     constructor() {
     }
 

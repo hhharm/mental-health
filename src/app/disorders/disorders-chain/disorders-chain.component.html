@@ -1,5 +1,5 @@
 <app-chain-connection></app-chain-connection>
-<ng-container *ngFor="let disorder of disorderKeys; index as i; trackBy: trackByFn">
-    <app-chain-node [info]="disordersModel[disorder]"></app-chain-node>
-    <app-chain-connection [arrow]="i === disorderKeys.length-1"></app-chain-connection>
+<ng-container *ngFor="let entry of disordersModel | keyvalue: unsorted; last as isLast; trackBy: trackByFn">
+    <app-chain-node [info]="entry.value"></app-chain-node>
+    <app-chain-connection [arrow]="isLast"></app-chain-connection>
 </ng-container>

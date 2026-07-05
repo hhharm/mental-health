@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding} from '@angular/core';
+import {KeyValue} from '@angular/common';
 import {DisorderInfo} from '../models/disorder-info.model';
 import {KeyMap} from '../../models/map.model';
 
@@ -9,11 +10,9 @@ import {KeyMap} from '../../models/map.model';
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
-export class DisordersChainComponent implements OnInit {
+export class DisordersChainComponent {
     @HostBinding('class.disorders-chain') hostClass = true;
 
-    /** @semi-public */
-    public disorderKeys: string[]; //  TODO: create object keys pipe
     private readonly personalityDisorders: KeyMap<DisorderInfo> = {
         BPD: {
             id: 'PD1',
@@ -45,11 +44,11 @@ export class DisordersChainComponent implements OnInit {
         },
     };
 
-    ngOnInit() {
-        this.disorderKeys = Object.keys(this.disordersModel);
+    public unsorted(a: KeyValue<string, DisorderInfo>, b: KeyValue<string, DisorderInfo>): number {
+        return 0;
     }
 
-    public trackByFn(index: number, item: DisorderInfo): string {
-        return item.id;
+    public trackByFn(index: number, entry: KeyValue<string, DisorderInfo>): string {
+        return entry.value.id;
     }
 }

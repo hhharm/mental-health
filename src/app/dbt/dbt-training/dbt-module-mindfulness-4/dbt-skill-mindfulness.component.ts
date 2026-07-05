@@ -8,7 +8,6 @@ import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
     standalone: false
 })
 export class DbtSkillMindfulnessComponent implements OnInit {
-    // TODO: move this to something different
     constructor() {
     }
 
