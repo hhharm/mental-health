@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import {CommonModule} from "@angular/common";
+import {NO_ERRORS_SCHEMA} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
 
 import {DbtTrainingNavigationComponent} from "./dbt-training-navigation.component";
 
@@ -8,7 +11,12 @@ describe("DbtTrainingNavigationComponent", () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [DbtTrainingNavigationComponent]
+            imports: [CommonModule],
+            declarations: [DbtTrainingNavigationComponent],
+            providers: [
+                {provide: ActivatedRoute, useValue: {firstChild: {snapshot: {url: []}}}}
+            ],
+            schemas: [NO_ERRORS_SCHEMA]
         })
             .compileComponents();
     }));

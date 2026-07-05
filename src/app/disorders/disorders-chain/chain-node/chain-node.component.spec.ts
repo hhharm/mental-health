@@ -16,6 +16,7 @@ describe("ChainNodeComponent", () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ChainNodeComponent);
         component = fixture.componentInstance;
+        component.info = {id: "id", label: "label", info: "info", group: "HEALTHY"};
         fixture.detectChanges();
     });
 

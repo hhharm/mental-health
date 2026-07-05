@@ -1,4 +1,5 @@
 import { TestBed, waitForAsync } from "@angular/core/testing";
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 import {AppComponent} from "./app.component";
 
 describe("AppComponent", () => {
@@ -7,6 +8,7 @@ describe("AppComponent", () => {
             declarations: [
                 AppComponent
             ],
+            schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));
 
@@ -22,10 +24,11 @@ describe("AppComponent", () => {
         expect(app.title).toEqual("mental-health");
     });
 
-    it("should render title", () => {
+    it("should render the header and footer", () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector(".content span").textContent).toContain("mental-health app is running!");
+        expect(compiled.querySelector("app-dbt-header")).toBeTruthy();
+        expect(compiled.querySelector("app-footer")).toBeTruthy();
     });
 });
