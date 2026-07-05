@@ -46,10 +46,13 @@ export class DataService {
     }
 }
 
+const relationshipsUrl = (module: string): string => `/dbt/relationships/${module}`;
+const emotionsUrl = (module: string): string => `/dbt/emotions/${module}`;
+
 const emotionsPlan: Article = {
     id: 'emotionsPlan',
     title: 'План занятий по эмоциональной регуляции',
-    urlPrevious: moduleUrls.talk_self_respect,
+    urlPrevious: relationshipsUrl(moduleUrls.talk_self_respect),
     urlNext: undefined,
     blocks: [
         {
@@ -92,8 +95,8 @@ const emotionsPlan: Article = {
 const communicationObjective: Article = {
     id: 'communicationObjective',
     title: 'Как отстаивать свои цели',
-    urlPrevious: moduleUrls.talk_validate,
-    urlNext: moduleUrls.talk_self_respect,
+    urlPrevious: relationshipsUrl(moduleUrls.talk_validate),
+    urlNext: relationshipsUrl(moduleUrls.talk_relationships),
     blocks: [
         {
             id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',
@@ -145,17 +148,153 @@ const communicationObjective: Article = {
 const communicationRelationships: Article = {
     id: 'communicationRelationships',
     title: 'Как сохранять или налаживать хорошие взаимоотношения',
-    blocks: [],
+    urlPrevious: relationshipsUrl(moduleUrls.talk_objectives),
+    urlNext: relationshipsUrl(moduleUrls.talk_self_respect),
+    blocks: [
+        {
+            id: 'relationshipsWhen',
+            title: '',
+            elements: [
+                {
+                    id: 'relationshipsWhenText',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'Иногда сохранить тёплые отношения с человеком важнее, чем добиться своего здесь и сейчас. ' +
+                        'Например, вы с близкой подругой выбираете, как провести выходные. Не так важно, чей вариант победит, — ' +
+                        'важно, чтобы после разговора вы остались подругами. В таких ситуациях главный вопрос: ' +
+                        '<strong>"Что должен чувствовать собеседник после нашего разговора?"</strong>',
+                },
+                {
+                    id: 'relationshipsRule',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'Чтобы отношения сохранялись и укреплялись, в разговоре стоит вести себя как ДРУГ:',
+                },
+                {
+                    id: 'relationshipsList',
+                    type: ArticleElemTypeEnum.ulist,
+                    content: [
+                        '<p>Д - доброжелательность. Никаких нападок, угроз и обесценивания. Без сарказма, закатывания глаз ' +
+                            'и "молчаливой обиды". Уважительный тон, даже если внутри всё кипит.</p>' +
+                            '<p>Пример: вместо "Ты опять всё испортил!" - "Давай разберёмся, что пошло не так".</p>',
+                        '<p>Р - реагируйте с интересом. Слушайте, не перебивая. Отложите телефон, повернитесь к человеку, ' +
+                            'смотрите в глаза. Если сейчас нет сил слушать - честно скажите об этом и предложите поговорить позже.</p>' +
+                            '<p>Пример: "Расскажи подробнее, как это было? Хочу понять."</p>',
+                        '<p>У - уважайте чувства собеседника (валидация). Покажите словами и делом, что вы понимаете его чувства ' +
+                            'и мысли. <strong>Валидация не означает согласие</strong>: можно понимать чувства человека и при этом ' +
+                            'не соглашаться с его позицией.</p>' +
+                            '<p>Пример: "Я вижу, что ты злишься, - на твоём месте я бы тоже разозлилась. Давай подумаем, как это решить".</p>',
+                        '<p>Г - говорите легко. Улыбка, немного юмора, спокойная манера. Людям проще идти навстречу, ' +
+                            'когда с ними разговаривают дружелюбно, а не давят на них.</p>' +
+                            '<p>Пример: "Слушай, у меня к тебе дело на миллион =) Поможешь?"</p>',
+                    ],
+                },
+            ],
+        },
+        {
+            id: 'relationshipsBalance',
+            title: 'О балансе',
+            elements: [
+                {
+                    id: 'relationshipsBalanceText',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'Важно не переусердствовать: если постоянно жертвовать своими целями и самоуважением ради отношений, ' +
+                        'неудовлетворённость будет накапливаться, и однажды она выплеснется - на себя или на близкого человека. ' +
+                        'Балансируйте этот навык с навыками достижения целей (ПРОСИ ТАК) и сохранения самоуважения (ЧЕСТЬ).',
+                },
+                {
+                    id: 'relationshipsPractice',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'Как и другие навыки, ДРУГ осваивается практикой: сначала в ролевых сценках на тренинге, затем в жизни. ' +
+                        '<strong>Обсудите:</strong> вспомните недавний разговор, который закончился ссорой или обидой. ' +
+                        'Какие пункты ДРУГ могли бы его изменить?',
+                },
+            ],
+        },
+    ],
 };
 const communicationSelfRespect: Article = {
     id: 'communicationSelfRespect',
     title: 'Как сохранять или создавать самоуважение',
-    blocks: [],
+    urlPrevious: relationshipsUrl(moduleUrls.talk_relationships),
+    urlNext: emotionsUrl(moduleUrls.emotions_plan),
+    blocks: [
+        {
+            id: 'selfRespectWhen',
+            title: '',
+            elements: [
+                {
+                    id: 'selfRespectWhenText',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'Бывают ситуации, когда важнее всего не цель и не отношения, а возможность потом смотреть на себя ' +
+                        'в зеркало с уважением. Главный вопрос здесь: <strong>"Что я хочу чувствовать по отношению к себе ' +
+                        'после этого разговора?"</strong>',
+                },
+                {
+                    id: 'selfRespectRule',
+                    type: ArticleElemTypeEnum.text,
+                    content: 'Чтобы сохранить самоуважение, действуйте по принципу ЧЕСТЬ:',
+                },
+                {
+                    id: 'selfRespectList',
+                    type: ArticleElemTypeEnum.ulist,
+                    content: [
+                        '<p>Ч - честность. Не врите, не преувеличивайте, не изображайте беспомощность, чтобы вызвать жалость. ' +
+                            'Маленькая ложь "для удобства" разъедает самоуважение изнутри.</p>',
+                        '<p>Е - есть ценности - держитесь их. Не отступайте от того, что для вас действительно важно, ' +
+                            'ради выгоды или чужого одобрения. Для этого полезно заранее разобраться, каковы ваши ценности =)</p>' +
+                            '<p>Пример: вас просят "прикрыть" коллегу и соврать начальству. Если честность - ваша ценность, ' +
+                            'вы вправе отказаться.</p>',
+                        '<p>С - справедливость. Будьте справедливы и к себе, и к собеседнику. Не требуйте от себя больше, ' +
+                            'чем потребовали бы от другого человека в той же ситуации, - и наоборот.</p>',
+                        '<p>Т - только без лишних извинений. Не извиняйтесь за то, что вы существуете, имеете мнение, ' +
+                            'просите о чём-то или отказываете. Одного искреннего "прости" достаточно: десять извинений подряд ' +
+                            'не делают его весомее, но заставляют вас чувствовать себя виноватым.</p>',
+                        '<p>Ь - мягкий знак сам не звучит, но смягчает слово. Так и твёрдость в своих ценностях ' +
+                            'не отменяет доброжелательности к собеседнику =)</p>',
+                    ],
+                },
+            ],
+        },
+        {
+            id: 'selfRespectBalance',
+            title: 'Какой навык когда использовать?',
+            elements: [
+                {
+                    id: 'selfRespectBalanceText',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'В каждой ситуации спросите себя, что сейчас в приоритете: цель (ПРОСИ ТАК), отношения (ДРУГ) ' +
+                        'или самоуважение (ЧЕСТЬ). Часто работают все три навыка сразу - разница лишь в акцентах.',
+                },
+                {
+                    id: 'selfRespectWarning',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        'Помните об обратной стороне: если жертвовать самоуважением постоянно - соглашаться, когда хочется ' +
+                        'отказать, извиняться за всё подряд, - недовольство собой будет накапливаться. ' +
+                        '<strong>Долг перед собой не менее важен, чем долг перед другими.</strong>',
+                },
+                {
+                    id: 'selfRespectPractice',
+                    type: ArticleElemTypeEnum.text,
+                    content:
+                        '<strong>Обсудите:</strong> вспомните ситуацию, после которой вам было неприятно за себя. ' +
+                        'Какой пункт ЧЕСТЬ был нарушен? Как можно было поступить иначе?',
+                },
+            ],
+        },
+    ],
 };
 
 const communicationValidate: Article = {
     id: 'communicationValidate',
     title: 'Как относиться к себе и к другим',
+    urlPrevious: relationshipsUrl(moduleUrls.talk_impair),
+    urlNext: relationshipsUrl(moduleUrls.talk_objectives),
     blocks: [
         {
             id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',
@@ -220,6 +359,8 @@ const communicationValidate: Article = {
 const communicationImpair: Article = {
     id: 'communicationImpair',
     title: 'Факторы, снижающие эффективность коммуникаций с другими людьми',
+    urlPrevious: relationshipsUrl(moduleUrls.talk_intro),
+    urlNext: relationshipsUrl(moduleUrls.talk_validate),
     blocks: [
         {
             id: 'bcc370d1-f330-4ee7-9b54-5c4b7cb286fc',
@@ -268,6 +409,7 @@ const communicationImpair: Article = {
 };
 const communicationIntro: Article = {
     id: 'communicationIntro',
+    urlNext: relationshipsUrl(moduleUrls.talk_impair),
     blocks: [
         {
             id: 'communicationIntroBlock',

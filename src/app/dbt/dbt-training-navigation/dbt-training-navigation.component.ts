@@ -12,12 +12,14 @@ import {Subscription} from 'rxjs';
 import {MenuStateService} from '../../shared/menu-state.service';
 import {MenuItem} from '../../models/menu-item.model';
 
+// maps the first URL segment under /dbt to the index of the `model` menu item to expand
 const URL_TO_INDEX = {
-    'bpd-theory': 1,
-    'training-format': 2,
-    'training-process': 3,
-    mindfulness: 5,
-    relationships: 6,
+    'bpd-theory': 0,
+    'training-format': 0,
+    'training-process': 0,
+    mindfulness: 1,
+    relationships: 2,
+    emotions: 3,
 };
 
 @Component({
@@ -157,14 +159,12 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
                 type: 'SUB_ITEM',
                 link: '/dbt/relationships/give',
                 title: 'Сохранение отношений',
-                disabled: true,
             },
             {
                 id: 'relationships5',
                 type: 'SUB_ITEM',
                 link: '/dbt/relationships/fast',
                 title: 'Сохранение самоуважения',
-                disabled: true,
             },
         ],
     };
@@ -205,11 +205,10 @@ export class DbtTrainingNavigationComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         if (this.route.firstChild.snapshot.url && this.route.firstChild.snapshot.url[0]) {
-            this.selectChapter(
-                undefined,
-                undefined,
-                URL_TO_INDEX[this.route.firstChild.snapshot.url[0].path],
-            );
+            const index = URL_TO_INDEX[this.route.firstChild.snapshot.url[0].path];
+            if (index !== undefined) {
+                this.selectChapter(undefined, undefined, index);
+            }
         }
         this.menuService.drawer = this.drawer;
     }
